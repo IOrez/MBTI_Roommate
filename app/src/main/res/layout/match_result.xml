@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="35dp"
+        android:text="나와 가장 잘 맞을 것 같은 룸메이트!"
+        android:textColor="#03A9F4"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="112dp"
+        tools:layout_editor_absoluteY="54dp" />
+
+    <TextView
+        android:id="@+id/first_rank_mbti_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="102dp"
+        android:text="MBTI"
+        android:textColor="#03A9F4"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/second_rank_mbti_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="272dp"
+        android:text="MBTI"
+        android:textColor="#03A9F4"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/third_rank_mbti_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="451dp"
+        android:text="MBTI"
+        android:textColor="#03A9F4"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/first_rank_mbti_image"
+        android:layout_width="76dp"
+        android:layout_height="101dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="142dp"
+        app:srcCompat="@drawable/mbti_enfj" />
+
+    <ImageView
+        android:id="@+id/second_rank_mbti_image"
+        android:layout_width="76dp"
+        android:layout_height="101dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="313dp"
+        app:srcCompat="@drawable/mbti_intj" />
+
+    <ImageView
+        android:id="@+id/third_rank_mbti_image"
+        android:layout_width="76dp"
+        android:layout_height="101dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="493dp"
+        app:srcCompat="@drawable/mbti_esfp" />
+
+
+    //First Rank Match
+    <ScrollView
+        android:id="@+id/first_rank_mbti_matchlist"
+        android:layout_width="320dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="142dp"
+        android:layout_marginEnd="0dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/first_rank_mbti_user_of_first_mbti_match"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username, age, major"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/second_rank_mbti_user_of_first_mbti_match"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username, age, major"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/third_rank_mbti_user_of_first_mbti_match"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username, age, major"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    //Second Rank Match
+    <ScrollView
+        android:id="@+id/second_rank_mbti_matchlist"
+        android:layout_width="320dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="313dp"
+        android:layout_marginEnd="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/first_rank_mbti_user_of_second_mbti_match"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username, age, major"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/second_rank_mbti_user_of_second_mbti_match"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username, age, major"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/third_rank_mbti_user_of_third_mbti_match"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username, age, major"
+                android:textSize="22sp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+    //Third Rank Match
+
+    <ScrollView
+        android:id="@+id/third_rank_mbti_matchlist"
+        android:layout_width="320dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="70dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/first_rank_of_mbti_user_of_third_mbti_match"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username, age, major"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/second_rank_of_mbti_user_of_third_mbti_match"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username, age, major"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/thrid_rank_of_mbti_user_of_third_mbti_match"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username, age, major"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
