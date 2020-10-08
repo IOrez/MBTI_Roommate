@@ -5,13 +5,30 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.w3c.dom.Text;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button signInButton;
-    public String strUsername,strPassword;
+    private String username,password;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,21 +38,52 @@ public class MainActivity extends AppCompatActivity {
         //로그인 버튼 클릭
         signInButton = (Button)findViewById(R.id.signInButton);
         signInButton.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View view) {
+                username = ((EditText)findViewById(R.id.username)).getText().toString();
+                password = ((EditText)findViewById(R.id.password)).getText().toString();
+                sendRequest(username,password);
 
-                //username & password 불러와야함
-                //strUsername = username.getText().toString().trim();
-                //strPassword = password.getText().toString().trim();
-                openMainPage();
             }
         });
     }
+
     //로그인하고 최초화면 띄우기
     public void openMainPage(){
         Intent intent = new Intent(this, BottomNavigationActivity.class);
         startActivity(intent);
+    }
+
+    public void sendRequest(final String id, final String password){
+        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+        String url = "http//15.164.217.53/User/Login";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if(!response.isEmpty())
+                    openMainPage();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            protected Map<String,String> getParams() {
+                Map<String,String> params = new HashMap<String,String>();
+                params.put("id",id);
+                params.put("password",password);
+                return params;
+            }
+            @Override
+            public  Map<String,String> getHeaders() throws AuthFailureError{
+                Map<String,String> params = new HashMap<String,String>();
+                params.put("Context-Type","application/x-www-form-urlencoded");
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
     }
 
 }
