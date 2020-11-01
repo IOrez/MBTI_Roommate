@@ -53,7 +53,6 @@ public class Match extends AppCompatActivity {
 
     }
     public void buttonClick(View v){
-        Log.d("Wrong","wrong");
         Intent intent = new Intent(getApplicationContext(), MatchResult.class);
         startActivity(intent);
     }

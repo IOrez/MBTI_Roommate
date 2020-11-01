@@ -1,6 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/match_result_user_mbti_image"
+        android:layout_width="129dp"
+        android:layout_height="193dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="32dp"
+        app:srcCompat="@drawable/mbti_enfj" />
+
+    <TextView
+        android:id="@+id/match_result_username"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="68dp"
+        android:text="Username"
+        android:textAlignment="center"
+        android:textColor="#03A9F4"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/match_result_user_mbti"
+        android:layout_width="134dp"
+        android:layout_height="41dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="141dp"
+        android:layout_marginEnd="68dp"
+        android:text="ENFJ"
+        android:textAlignment="center"
+        android:textColor="#03A9F4"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/mbti_match_explanation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="262dp"
+        android:text="궁합 설명:"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/user_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="297dp"
+        android:text="나이:"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/user_major"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="332dp"
+        android:text="학과:"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/user_smoke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="367dp"
+        android:text="흡연:"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/user_lifestyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="406dp"
+        android:text="라이프스타일 설명:"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/mbti_match_explanation_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="262dp"
+        android:text="니 맘이 내 맘! 천생연분!" />
+
+    <TextView
+        android:id="@+id/match_result_user_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="297dp"
+        android:text="25" />
+
+    <TextView
+        android:id="@+id/match_result_user_major"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="332dp"
+        android:text="컴퓨터학부" />
+
+    <TextView
+        android:id="@+id/match_result_user_smoke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="367dp"
+        android:text="비흡연" />
+
+    <EditText
+        android:id="@+id/match_result_user_lifestyle"
+        android:layout_width="345dp"
+        android:layout_height="189dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="100dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:text="안녕하세요! 저는 대체로 집을 깔끔하게 쓰는 유형이며, 같이 살게 되면 일주일에 최소 한 번은 같이 청소를 하면 좋겠습니다. 술 마시는 것을 별로 좋아하지 않아 저녁 늦게 들어오는 일은 거의 없으며, 잠은 밤 12시가 되면 자는 편입니다." />
+
+    <Button
+        android:id="@+id/view_user_contact_info_button"
+        android:layout_width="158dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="128dp"
+        android:layout_marginBottom="25dp"
+        android:text="연락처 열람하기" />
+
+</RelativeLayout>
