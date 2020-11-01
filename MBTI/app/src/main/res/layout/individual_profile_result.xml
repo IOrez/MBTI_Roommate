@@ -150,7 +150,7 @@
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:text="안녕하세요! 저는 대체로 집을 깔끔하게 쓰는 유형이며, 같이 살게 되면 일주일에 최소 한 번은 같이 청소를 하면 좋겠습니다. 술 마시는 것을 별로 좋아하지 않아 저녁 늦게 들어오는 일은 거의 없으며, 잠은 밤 12시가 되면 자는 편입니다." />
+        android:text="안녕하세요! 저는 대체로 집을 깔끔하게 쓰는 유형이며, 같이 살게 되면 일주일에 최소 한 번은 같이 청소를 하면 좋겠습니다. 술 마시는 것을 별로 좋아하지 않아 저녁 늦게 들어오는 일은 거의 없으며, 잠은 밤 12시가 되면 자는 편입니다!" />
 
     <Button
         android:id="@+id/view_user_contact_info_button"

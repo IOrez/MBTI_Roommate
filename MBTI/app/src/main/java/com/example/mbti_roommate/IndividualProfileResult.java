@@ -25,7 +25,7 @@ public class IndividualProfileResult extends AppCompatActivity {
     TextView matchResultUserMajor;                  //상대 학과
     TextView matchResultUserSmoke;                  //상대 흡연 유무
     EditText matchResultUserLifeStyle;              //상대 라이프스타일 설명
-    Button viewUserContactInfoButton;               //상대 연락처 열람하기 버튼
+    Button viewUserContactInfoButton;               //상대 연락처 열람하기 버튼임
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
