@@ -98,128 +98,41 @@
         app:srcCompat="@drawable/mbti_esfp" />
 
 
-    //First Rank Match
-    <ScrollView
-        android:id="@+id/first_rank_mbti_matchlist"
-        android:layout_width="320dp"
-        android:layout_height="100dp"
+    <TextView
+        android:id="@+id/first_rank_match"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="142dp"
-        android:layout_marginEnd="0dp">
+        android:layout_marginTop="172dp"
+        android:layout_marginEnd="120dp"
+        android:text="Match 1"
+        android:textSize="30sp" />
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/first_rank_mbti_user_of_first_mbti_match"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="username, age, major"
-                android:textSize="22sp" />
-
-            <TextView
-                android:id="@+id/second_rank_mbti_user_of_first_mbti_match"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="username, age, major"
-                android:textSize="22sp" />
-
-            <TextView
-                android:id="@+id/third_rank_mbti_user_of_first_mbti_match"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="username, age, major"
-                android:textSize="22sp" />
-
-        </LinearLayout>
-    </ScrollView>
-
-
-    //Second Rank Match
-    <ScrollView
-        android:id="@+id/second_rank_mbti_matchlist"
-        android:layout_width="320dp"
-        android:layout_height="100dp"
-        android:layout_alignParentTop="true"
+    <TextView
+        android:id="@+id/second_rank_match"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="313dp"
-        android:layout_marginEnd="1dp">
+        android:layout_marginStart="101dp"
+        android:layout_marginEnd="119dp"
+        android:layout_toEndOf="@+id/second_rank_mbti_image"
+        android:text="Match 2"
+        android:textSize="30sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/first_rank_mbti_user_of_second_mbti_match"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="username, age, major"
-                android:textSize="22sp" />
-
-            <TextView
-                android:id="@+id/second_rank_mbti_user_of_second_mbti_match"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="username, age, major"
-                android:textSize="22sp" />
-
-            <TextView
-                android:id="@+id/third_rank_mbti_user_of_third_mbti_match"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="username, age, major"
-                android:textSize="22sp" />
-
-
-        </LinearLayout>
-    </ScrollView>
-
-
-
-    //Third Rank Match
-
-    <ScrollView
-        android:id="@+id/third_rank_mbti_matchlist"
-        android:layout_width="320dp"
-        android:layout_height="100dp"
+    <TextView
+        android:id="@+id/third_rank_match"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="70dp">
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="521dp"
+        android:layout_marginEnd="119dp"
+        android:layout_toEndOf="@+id/third_rank_mbti_image"
+        android:text="Match 3"
+        android:textSize="30sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/first_rank_of_mbti_user_of_third_mbti_match"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="username, age, major"
-                android:textSize="22sp" />
-
-            <TextView
-                android:id="@+id/second_rank_of_mbti_user_of_third_mbti_match"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="username, age, major"
-                android:textSize="22sp" />
-
-            <TextView
-                android:id="@+id/thrid_rank_of_mbti_user_of_third_mbti_match"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="username, age, major"
-                android:textSize="22sp" />
-
-        </LinearLayout>
-    </ScrollView>
 
 </RelativeLayout>
