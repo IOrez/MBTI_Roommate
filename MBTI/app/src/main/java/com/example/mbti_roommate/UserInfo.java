@@ -16,6 +16,7 @@ public class UserInfo extends Singleton{
     public String pcontact;
     public int pstime;
     public int pshour;
+    public boolean hasMatchBefore;
 
     public static Singleton getInstance() {
         if(instance == null){

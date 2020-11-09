@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                             appuser.pcontact = jsonObj.getString("pcontact");
                             appuser.pstime = jsonObj.getInt("pstime");
                             appuser.pshour = jsonObj.getInt("pshour");
+                            appuser.hasMatchBefore = jsonObj.getBoolean("hasMatchBefore");
                             /*
                             String uid = jsonObj.getString("uid");
                             String uname = jsonObj.getString("uname");

@@ -7,7 +7,7 @@ module.exports = function(app,db){
         var password = req.body.password;
         console.log(id);
         console.log(password);
-        db.query('SELECT * FROM User WHERE uid = ?', [id], function( error, results, fields) {
+        db.query('SELECT * FROM User WHERE id = ?', [id], function( error, results, fields) {
             if (error){
                 console.log("error ocurred", error);
                 res.send({"success":false,"reason":"unknown error"});
@@ -18,11 +18,21 @@ module.exports = function(app,db){
                     if(results[0].upassword == password)
                         res.send({
                             "success":true,
-                            "uid":results[0].uid,
-                            "uname":results[0].upassword,
-                            "uuniv":results[0].uuniv,
-                            "uemail":results[0].uemail,
-                            "profileid":results[0].profileid
+                            "id":results[0].id,
+                            "password":results[0].password,
+                            "pname":results[0].pname,
+                            "pgender":results[0].pgender,
+                            "pmbti":results[0].pmbti,
+                            "pdormitoryid":results[0].pdormitoryid,
+                            "univ":results[0].univ,
+                            "email":results[0].email,
+                            "psmoke":results[0].psmoke,
+                            "pcomment":results[0].pcomment,
+                            "page":results[0].page,
+                            "pcontact":results[0].pcontact,
+                            "pstime":results[0].pstime,
+                            "pshour":results[0].pshour,
+                            "hasMatchBefore":results[0].hasMatchBefore
                         });
                     else
                         res.send({"success":false,"reason":"id or password not correct!"});
