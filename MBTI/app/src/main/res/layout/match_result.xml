@@ -132,5 +132,16 @@
         android:text="Match 3"
         android:textSize="30sp" />
 
+    <Button
+        android:id="@+id/rematch_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="163dp"
+        android:layout_marginBottom="41dp"
+        android:text="재매칭하기" />
+
 
 </RelativeLayout>

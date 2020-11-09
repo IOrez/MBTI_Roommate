@@ -3,6 +3,7 @@ package com.example.mbti_roommate;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -56,17 +57,41 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendRequest(final String id, final String password){
         RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
-        String url = "http//15.164.217.53/User/Login";
+        String url = "http://15.164.217.53:5000/User/Login";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if(!response.isEmpty())
-                    openMainPage();
+                if(!response.isEmpty()) {
+                    try {
+                        JSONObject jsonObj = new JSONObject(response);
+                        boolean isSuccessed = jsonObj.getBoolean("success");
+                        Log.e("Success",String.valueOf(isSuccessed));
+                        if(isSuccessed) {
+                            String uid = jsonObj.getString("uid");
+                            String uname = jsonObj.getString("uname");
+                            int uuniv = jsonObj.getInt("uuniv");
+                            String uemail = jsonObj.getString("uemail");
+                            boolean hasProfile = jsonObj.isNull("profiledid");
+                            Log.e("hasProfile",String.valueOf(hasProfile));
+                            Integer profileid = null;
+                            if(!hasProfile){
+                                profileid = jsonObj.getInt("profiledid");
+                            }
+                            openMainPage();
+                        }
+                        else{
+                            Toast info = Toast.makeText(getApplicationContext(),jsonObj.getString("reason"),Toast.LENGTH_LONG);
+                            info.show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Log.e("Error",error.toString());
             }
         }){
             @Override

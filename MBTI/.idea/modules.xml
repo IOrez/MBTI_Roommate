@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MBTI_Roommate.iml" filepath="$PROJECT_DIR$/.idea/modules/MBTI_Roommate.iml" group="MBTI_Roommate" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MBTI_Roommate-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MBTI_Roommate-app.iml" group="MBTI_Roommate/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="MBTI_Roommate/app" />
     </modules>
   </component>

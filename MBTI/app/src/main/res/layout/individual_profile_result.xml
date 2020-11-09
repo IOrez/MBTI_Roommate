@@ -95,7 +95,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="406dp"
+        android:layout_marginTop="435dp"
         android:text="라이프스타일 설명:"
         android:textStyle="bold" />
 
@@ -140,13 +140,14 @@
         android:text="비흡연" />
 
     <EditText
-        android:id="@+id/match_result_user_lifestyle"
+        android:id="@+id/match_result_user_selfIntroduction"
         android:layout_width="345dp"
         android:layout_height="189dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="35dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="81dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
@@ -162,5 +163,16 @@
         android:layout_marginStart="128dp"
         android:layout_marginBottom="25dp"
         android:text="연락처 열람하기" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="311dp"
+        android:text="수면시간:"
+        android:textStyle="bold" />
 
 </RelativeLayout>

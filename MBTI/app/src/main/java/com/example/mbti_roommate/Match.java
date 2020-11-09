@@ -38,22 +38,20 @@ public class Match extends AppCompatActivity {
                         return true;
                     case R.id.nav_match:
                         return true;
-                    case R.id.nav_more:
-                        startActivity(new Intent(getApplicationContext(), More.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-
                 }
                 return false;
             }
         });
 
-        //goSeeMatchResultButton = (Button)findViewById(R.id.go_see_match_result_button);
-        //goSeeMatchResultButton.setOnClickListener(new View.OnClickListener(){
+
 
     }
-    public void buttonClick(View v){
+    public void matchButtonClick(View v){               //매칭하기 버튼 클릭 시 호출 함수
         Intent intent = new Intent(getApplicationContext(), MatchResult.class);
         startActivity(intent);
+    }
+
+    public void openSavedMatchResults(View v){          //이전 매칭 결과 불러오기 클릭 시 호출 함수
+
     }
 }

@@ -34,11 +34,6 @@ public class BottomNavigationActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(),Match.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.nav_more:
-                        startActivity(new Intent(getApplicationContext(),More.class));
-                        overridePendingTransition(0,0);
-                        return true;
-
                 }
                 return false;
             }

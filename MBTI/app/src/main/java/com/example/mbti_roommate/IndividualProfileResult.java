@@ -1,15 +1,19 @@
 package com.example.mbti_roommate;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +31,8 @@ public class IndividualProfileResult extends AppCompatActivity {
     EditText matchResultUserLifeStyle;              //상대 라이프스타일 설명
     Button viewUserContactInfoButton;               //상대 연락처 열람하기 버튼임
 
+    String contactInfo;                             //상대 연락처 변수 (오픈 카톡 링크, 전화번호, 이메일 등이 가능
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -41,15 +47,31 @@ public class IndividualProfileResult extends AppCompatActivity {
         matchResultUserAge = (TextView)findViewById(R.id.match_result_user_age);
         matchResultUserMajor = (TextView)findViewById(R.id.match_result_user_major);
         matchResultUserSmoke = (TextView)findViewById(R.id.match_result_user_smoke);
-        matchResultUserLifeStyle = (EditText)findViewById(R.id.match_result_user_lifestyle);
+        matchResultUserLifeStyle = (EditText)findViewById(R.id.match_result_user_selfIntroduction);
         viewUserContactInfoButton = (Button)findViewById(R.id.view_user_contact_info_button);
 
+        viewUserContactInfoButton.setOnClickListener(new View.OnClickListener(){    //연락처 열람 버튼 클릭 시 pop-up 이 뜰 수 있게 설정
+            @Override
+            public void onClick(View view) {
+                openContactInfo();
+            }
+        });
 
+    }
 
+    public void openContactInfo(){
 
-
-
-
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle(" 연락처 정보"); alertDialogBuilder.setMessage(contactInfo);         //contactInfo 가 실제 연락처 정보
+        alertDialogBuilder.setPositiveButton("Ok",
+                new DialogInterface.OnClickListener() {
+                    @Override public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(IndividualProfileResult.this, "프로필 열람을 완료하였습니다.",
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 
 }

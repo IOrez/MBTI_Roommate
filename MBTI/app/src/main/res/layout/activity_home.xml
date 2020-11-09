@@ -71,80 +71,99 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/infj"
                     android:layout_width="70dp"
                     android:layout_height="100dp"
                     android:src="@drawable/mbti_infj" />
 
                 <ImageView
+                    android:id="@+id/infp"
                     android:layout_width="70dp"
                     android:layout_height="100dp"
                     android:src="@drawable/mbti_infp" />
 
                 <ImageView
+                    android:id="@+id/enfj"
                     android:layout_width="70dp"
                     android:layout_height="100dp"
                     android:src="@drawable/mbti_enfj" />
 
                 <ImageView
+                    android:id="@+id/enfp"
                     android:layout_width="70dp"
                     android:layout_height="100dp"
                     android:src="@drawable/mbti_enfp" />
 
                 <ImageView
+                    android:id="@+id/isfj"
                     android:layout_width="70dp"
                     android:layout_height="100dp"
                     android:src="@drawable/mbti_isfj" />
 
                 <ImageView
+                    android:id="@+id/istj"
                     android:layout_width="70dp"
                     android:layout_height="100dp"
                     android:src="@drawable/mbti_istj" />
 
                 <ImageView
+                    android:id="@+id/estj"
                     android:layout_width="70dp"
                     android:layout_height="100dp"
                     android:src="@drawable/mbti_estj" />
 
                 <ImageView
+                    android:id="@+id/esfj"
                     android:layout_width="70dp"
                     android:layout_height="100dp"
                     android:src="@drawable/mbti_esfj" />
 
                 <ImageView
+                    android:id="@+id/istp"
                     android:layout_width="70dp"
                     android:layout_height="100dp"
                     android:src="@drawable/mbti_istp" />
 
                 <ImageView
+                    android:id="@+id/estp"
                     android:layout_width="70dp"
                     android:layout_height="100dp"
                     android:src="@drawable/mbti_estp" />
 
                 <ImageView
+                    android:id="@+id/isfp"
                     android:layout_width="70dp"
                     android:layout_height="100dp"
                     android:src="@drawable/mbti_isfp" />
 
                 <ImageView
+                    android:id="@+id/esfp"
                     android:layout_width="70dp"
                     android:layout_height="100dp"
                     android:src="@drawable/mbti_esfp" />
 
                 <ImageView
+                    android:id="@+id/entj"
                     android:layout_width="70dp"
                     android:layout_height="100dp"
                     android:src="@drawable/mbti_entj" />
 
                 <ImageView
+                    android:id="@+id/intp"
                     android:layout_width="70dp"
                     android:layout_height="100dp"
                     android:src="@drawable/mbti_intp" />
 
                 <ImageView
+                    android:id="@+id/intj"
                     android:layout_width="70dp"
                     android:layout_height="100dp"
                     android:src="@drawable/mbti_intj" />
-
+                <ImageView
+                    android:id="@+id/entp"
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/mbti_entp"/>
 
             </LinearLayout>
         </HorizontalScrollView>
