@@ -28,13 +28,16 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     private Button signInButton;
+    private Button userRegister;
     private String username,password;
-
+    private User appuser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        appuser = (User)User.getInstance();
 
         //로그인 버튼 클릭
         signInButton = (Button)findViewById(R.id.signInButton);
@@ -47,6 +50,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    //회원가입 페이지 띄우기
+    public void openUserRegisterPage(View v){
+        Intent intent = new Intent(this, UserRegister.class);
+        startActivity(intent);
     }
 
     //로그인하고 최초화면 띄우기
@@ -67,6 +77,21 @@ public class MainActivity extends AppCompatActivity {
                         boolean isSuccessed = jsonObj.getBoolean("success");
                         Log.e("Success",String.valueOf(isSuccessed));
                         if(isSuccessed) {
+                            appuser.id = jsonObj.getString("id");
+                            appuser.password = jsonObj.getString("password");
+                            appuser.pname = jsonObj.getString("pname");
+                            appuser.pgender = jsonObj.getInt("pgender");
+                            appuser.pmbti = jsonObj.getInt("pmbti");
+                            appuser.pdormitory = jsonObj.getInt("pdormitory");
+                            appuser.univ = jsonObj.getInt("univ");
+                            appuser.email = jsonObj.getString("email");
+                            appuser.psmoke = jsonObj.getBoolean("psmoke");
+                            appuser.pcomment = jsonObj.getString("pcomment");
+                            appuser.page = jsonObj.getInt("page");
+                            appuser.pcontact = jsonObj.getString("pcontact");
+                            appuser.pstime = jsonObj.getInt("pstime");
+                            appuser.pshour = jsonObj.getInt("pshour");
+                            /*
                             String uid = jsonObj.getString("uid");
                             String uname = jsonObj.getString("uname");
                             int uuniv = jsonObj.getInt("uuniv");
@@ -77,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
                             if(!hasProfile){
                                 profileid = jsonObj.getInt("profiledid");
                             }
+                            */
                             openMainPage();
                         }
                         else{
