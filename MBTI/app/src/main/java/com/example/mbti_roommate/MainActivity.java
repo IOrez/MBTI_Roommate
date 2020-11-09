@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendRequest(final String id, final String password){
         RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
-        String url = "http://15.164.217.53:5000/User/Login";
+        String url = "http://15.164.217.53:7777/User/Login";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

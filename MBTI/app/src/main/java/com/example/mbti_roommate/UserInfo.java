@@ -18,10 +18,7 @@ public class UserInfo extends Singleton{
     public int pshour;
     public boolean hasMatchBefore;
 
-    public static Singleton getInstance() {
-        if(instance == null){
-            Singleton.instance = new UserInfo();
-        }
+    public static Singleton getInstance(){
         return instance;
     }
 }

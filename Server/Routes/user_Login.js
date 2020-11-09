@@ -15,7 +15,7 @@ module.exports = function(app,db){
             else{
                 console.log(results);
                 if(results.length > 0) {
-                    if(results[0].upassword == password)
+                    if(results[0].password == password)
                         res.send({
                             "success":true,
                             "id":results[0].id,
