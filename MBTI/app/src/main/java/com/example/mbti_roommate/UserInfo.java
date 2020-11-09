@@ -10,13 +10,13 @@ public class UserInfo extends Singleton{
     public int pdormitory;
     public int univ;
     public String email;
-    public boolean psmoke;
+    public int psmoke;
     public String pcomment;
     public int page;
     public String pcontact;
     public int pstime;
     public int pshour;
-    public boolean hasMatchBefore;
+    public int hasMatchBefore;
 
     public static Singleton getInstance(){
         return instance;

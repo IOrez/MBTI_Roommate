@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendRequest(final String id, final String password){
         RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
-        String url = "http://15.164.217.53:7777/User/Login";
+        String url = "http://15.164.217.53:5000/User/Login";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -85,25 +85,15 @@ public class MainActivity extends AppCompatActivity {
                             appuser.pdormitory = jsonObj.getInt("pdormitory");
                             appuser.univ = jsonObj.getInt("univ");
                             appuser.email = jsonObj.getString("email");
-                            appuser.psmoke = jsonObj.getBoolean("psmoke");
+                            appuser.psmoke = jsonObj.getInt("psmoke");
                             appuser.pcomment = jsonObj.getString("pcomment");
                             appuser.page = jsonObj.getInt("page");
                             appuser.pcontact = jsonObj.getString("pcontact");
                             appuser.pstime = jsonObj.getInt("pstime");
                             appuser.pshour = jsonObj.getInt("pshour");
-                            appuser.hasMatchBefore = jsonObj.getBoolean("hasMatchBefore");
-                            /*
-                            String uid = jsonObj.getString("uid");
-                            String uname = jsonObj.getString("uname");
-                            int uuniv = jsonObj.getInt("uuniv");
-                            String uemail = jsonObj.getString("uemail");
-                            boolean hasProfile = jsonObj.isNull("profiledid");
-                            Log.e("hasProfile",String.valueOf(hasProfile));
-                            Integer profileid = null;
-                            if(!hasProfile){
-                                profileid = jsonObj.getInt("profiledid");
-                            }
-                            */
+                            appuser.hasMatchBefore = jsonObj.getInt("hasMatchBefore");
+                            User temp = (User)User.getInstance();
+                            Log.e("name",temp.pname);
                             openMainPage();
                         }
                         else{
