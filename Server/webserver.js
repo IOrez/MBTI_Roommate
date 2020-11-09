@@ -15,6 +15,7 @@ app.use(function(req,res,next){
 var dbConnection = mySQL.init();
 
 app.use('/User/Login',require('./Routes/user_Login')(app,dbConnection));
+app.use('/User/Register',require('./Routes/user_Register')(app,dbConnection));
 //app.use('/User/Register',require('./Routes/user_Register')(app,dbConnection));
 //app.use('/Find',require('./Routes/Find')(app,dbConnection));
 
