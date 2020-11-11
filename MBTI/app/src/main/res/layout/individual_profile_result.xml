@@ -224,7 +224,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="284dp"
         android:layout_marginBottom="238dp"
-        android:text="8:00"
+        android:text="8시간"
         android:textColor="#63A180"
         android:textSize="18sp"
         android:textStyle="bold" />
