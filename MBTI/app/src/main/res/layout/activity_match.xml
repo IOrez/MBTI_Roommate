@@ -9,10 +9,6 @@
     android:background="@color/primaryBackgroundColor">
 
 
-    <!--Bottom Navigation Bar 에서 fragment_match
-    가 실행되었을 때 최초로 나오는 화면
-    사용자는 프로필 작성하기 아니면 이미 매칭된 결과를 보러 갈 수 있다.-->
-
     <ImageView
         android:id="@+id/initial_match_page_app_logo"
         android:layout_width="151dp"

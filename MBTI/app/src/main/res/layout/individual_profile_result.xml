@@ -45,26 +45,14 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/mbti_match_explanation"
+        android:id="@+id/match_result_user_major"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="262dp"
-        android:text="궁합 설명:"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/user_age"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="297dp"
-        android:text="나이:"
-        android:textStyle="bold" />
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="280dp"
+        android:text="컴퓨터학부" />
 
     <TextView
         android:id="@+id/user_major"
@@ -72,9 +60,53 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="332dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="280dp"
         android:text="학과:"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/match_result_dormitory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="318dp"
+        android:text="첨성관" />
+
+    <TextView
+        android:id="@+id/user_dormitory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="319dp"
+        android:text="기숙사:"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/match_result_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_dormitory"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="23dp"
+        android:autoLink="web"
+        android:text="https://open.kakao.com/o/sFRTbg5"
+        android:textColor="#2196F3" />
+
+    <TextView
+        android:id="@+id/user_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_dormitory"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="24dp"
+        android:text="연락처:"
         android:textStyle="bold" />
 
     <TextView
@@ -83,51 +115,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="367dp"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="280dp"
         android:text="흡연:"
         android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/user_lifestyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="435dp"
-        android:text="라이프스타일 설명:"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/mbti_match_explanation_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="114dp"
-        android:layout_marginTop="262dp"
-        android:text="니 맘이 내 맘! 천생연분!" />
-
-    <TextView
-        android:id="@+id/match_result_user_age"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="114dp"
-        android:layout_marginTop="297dp"
-        android:text="25" />
-
-    <TextView
-        android:id="@+id/match_result_user_major"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="114dp"
-        android:layout_marginTop="332dp"
-        android:text="컴퓨터학부" />
 
     <TextView
         android:id="@+id/match_result_user_smoke"
@@ -135,44 +126,129 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="114dp"
-        android:layout_marginTop="367dp"
+        android:layout_marginStart="304dp"
+        android:layout_marginTop="280dp"
         android:text="비흡연" />
+
+    <TextView
+        android:id="@+id/user_lifestyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="533dp"
+        android:text="라이프스타일 설명:"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/gender_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="240dp"
+        android:text="남" />
+
+    <TextView
+        android:id="@+id/gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="241dp"
+        android:text="성별:"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/match_result_user_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="304dp"
+        android:layout_marginTop="240dp"
+        android:text="25" />
+
+    <TextView
+        android:id="@+id/user_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="240dp"
+        android:text="나이:"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/match_result_user_selfIntroduction"
-        android:layout_width="345dp"
-        android:layout_height="189dp"
+        android:layout_width="347dp"
+        android:layout_height="107dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginBottom="81dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginBottom="2dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:text="안녕하세요! 저는 대체로 집을 깔끔하게 쓰는 유형이며, 같이 살게 되면 일주일에 최소 한 번은 같이 청소를 하면 좋겠습니다. 술 마시는 것을 별로 좋아하지 않아 저녁 늦게 들어오는 일은 거의 없으며, 잠은 밤 12시가 되면 자는 편입니다!" />
-
-    <Button
-        android:id="@+id/view_user_contact_info_button"
-        android:layout_width="158dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="128dp"
-        android:layout_marginBottom="25dp"
-        android:text="연락처 열람하기" />
+        android:text="안녕하세요! 저는 대체로 집을 깔끔하게 쓰는 유형이며, 같이 살게 되면 일주일에 최소 한 번은 같이 청소를 하면 좋겠습니다." />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/sleep_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="33dp"
+        android:layout_marginBottom="225dp"
+        android:text="수면시간:"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/match_result_sleep_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="149dp"
+        android:layout_marginBottom="238dp"
+        android:text="01:00"
+        android:textColor="#63A180"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/match_result_sleep_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="284dp"
+        android:layout_marginBottom="238dp"
+        android:text="8:00"
+        android:textColor="#63A180"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginBottom="311dp"
-        android:text="수면시간:"
+        android:layout_marginStart="276dp"
+        android:layout_marginBottom="204dp"
+        android:text="수면시간"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="149dp"
+        android:layout_marginBottom="203dp"
+        android:text="수면시각"
         android:textStyle="bold" />
 
 </RelativeLayout>
