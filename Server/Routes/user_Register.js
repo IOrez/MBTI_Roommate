@@ -16,10 +16,20 @@ module.exports = function(app,db){
                 else{
                     var User = {
                         "id": req.body.id,
-                        "password":req.body.password,
-                        /*
-                        pname 부터 hasMatchBefore까지
-                        */
+                        "password":User.password,
+                        "pname":req.body.pname,
+                        "pgender":req.body.pgender,
+                        "pmbti":req.body.pmbti,
+                        "pdormitory":req.body.pdormitory,
+                        "univ":req.body.univ,
+                        "email":req.body.email,
+                        "psmoke":req.body.psmoke,
+                        "pcomment":req.body.pcomment,
+                        "page":req.body.page,
+                        "pcontact":req.body.pcontact,
+                        "pstime":req.body.pstime,
+                        "pshour":req.body.pshour,
+                        "hasMatchBefore":false
                     }
                     db.query('INSERT INTO User SET ?', User, function( error, results, fields) {
                         if (error){

@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        appuser = (User)User.getInstance();
+        appuser = User.getInstance();
 
         //로그인 버튼 클릭
         signInButton = (Button)findViewById(R.id.signInButton);
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendRequest(final String id, final String password){
         RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
-        String url = "http://15.164.217.53:5000/User/Login";
+        String url = urlManager.loginURL;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

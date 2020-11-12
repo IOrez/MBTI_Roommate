@@ -13,7 +13,7 @@ module.exports = class MatchResultList{
     }
 
     makeList(userData){
-        db.query('SELECT * FROM User WHERE pdormitory = ?', [userData.pdormitory], function( error, results, fields) {
+        db.query(`SELECT * FROM User WHERE pdormitory = ${userData.pdormitory} and NOT id=${userData.id} and isMatched=0 and id NOT IN(SELECT otherid FROM denymatch WHERE id =${userData.id})`, function( error, results, fields) {
             if (error)
                 console.log("error ocurred", error);
             else{
