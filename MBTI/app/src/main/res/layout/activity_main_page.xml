@@ -4,8 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--fragment_home(홈화면), fragment_match(매칭 화면),
-    fragment_more(더보기 화면) 프래그먼트 3개를 삽입하기 위한 Layout임 -->
+
 
     <FrameLayout
         android:id="@+id/container"

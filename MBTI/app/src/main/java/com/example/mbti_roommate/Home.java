@@ -12,8 +12,11 @@ import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Home extends AppCompatActivity {
 
+
+//별 기능이 있는 클래스는 아니고, 그냥 16가지 MBTI 중에 궁금한 유형이 있으면 클릭 시 설명하는 웹페이지로 이동하게끔 코드를 짬
+
+public class Home extends AppCompatActivity {
 
     ImageView infj, infp,enfj, enfp,isfj,istj,estj,esfj,istp,estp, isfp, esfp, entj, intp, intj, entp;
 

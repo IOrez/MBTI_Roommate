@@ -24,77 +24,28 @@
         tools:layout_editor_absoluteX="112dp"
         tools:layout_editor_absoluteY="54dp" />
 
+    <ImageView
+        android:id="@+id/first_rank_mbti_image"
+        android:layout_width="98dp"
+        android:layout_height="123dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-3dp"
+        android:layout_marginTop="117dp"
+        app:srcCompat="@drawable/mbti_enfj" />
+
     <TextView
         android:id="@+id/first_rank_mbti_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="102dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="75dp"
         android:text="MBTI"
         android:textColor="#03A9F4"
         android:textSize="24sp"
         android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/second_rank_mbti_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="272dp"
-        android:text="MBTI"
-        android:textColor="#03A9F4"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/third_rank_mbti_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="451dp"
-        android:text="MBTI"
-        android:textColor="#03A9F4"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/first_rank_mbti_image"
-        android:layout_width="76dp"
-        android:layout_height="101dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="142dp"
-        app:srcCompat="@drawable/mbti_enfj" />
-
-    <ImageView
-        android:id="@+id/second_rank_mbti_image"
-        android:layout_width="76dp"
-        android:layout_height="101dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="313dp"
-        app:srcCompat="@drawable/mbti_intj" />
-
-    <ImageView
-        android:id="@+id/third_rank_mbti_image"
-        android:layout_width="76dp"
-        android:layout_height="101dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="493dp"
-        app:srcCompat="@drawable/mbti_esfp" />
-
 
     <TextView
         android:id="@+id/first_rank_match"
@@ -102,8 +53,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="172dp"
-        android:layout_marginEnd="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="164dp"
+        android:layout_marginEnd="151dp"
         android:text="Match 1"
         android:textSize="30sp" />
 
@@ -111,13 +63,38 @@
         android:id="@+id/second_rank_match"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="101dp"
-        android:layout_marginEnd="119dp"
-        android:layout_toEndOf="@+id/second_rank_mbti_image"
+        android:layout_alignParentTop="true"
+
+        android:layout_centerInParent="true"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="323dp"
+        android:layout_marginEnd="120dp"
         android:text="Match 2"
         android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/second_rank_mbti_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="247dp"
+        android:text="MBTI"
+        android:textColor="#03A9F4"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/second_rank_mbti_image"
+        android:layout_width="93dp"
+        android:layout_height="125dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="287dp"
+        app:srcCompat="@drawable/mbti_intj" />
 
     <TextView
         android:id="@+id/third_rank_match"
@@ -125,22 +102,46 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="521dp"
-        android:layout_marginEnd="119dp"
-        android:layout_toEndOf="@+id/third_rank_mbti_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="498dp"
+        android:layout_marginEnd="153dp"
         android:text="Match 3"
         android:textSize="30sp" />
 
+    <ImageView
+        android:id="@+id/third_rank_mbti_image"
+        android:layout_width="89dp"
+        android:layout_height="125dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="466dp"
+        app:srcCompat="@drawable/mbti_esfp" />
+
+    <TextView
+        android:id="@+id/third_rank_mbti_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="422dp"
+        android:text="MBTI"
+        android:textColor="#03A9F4"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
     <Button
         android:id="@+id/rematch_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="148dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="163dp"
-        android:layout_marginBottom="41dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginBottom="16dp"
         android:text="재매칭하기" />
 
 

@@ -12,6 +12,8 @@ import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+//하단바에서 "매칭" 탭을 누르면 나오는 화면 클래스
+
 public class Match extends AppCompatActivity {
 
     Button goSeeMatchResultButton;
@@ -53,5 +55,6 @@ public class Match extends AppCompatActivity {
 
     public void openSavedMatchResults(View v){          //이전 매칭 결과 불러오기 클릭 시 호출 함수
 
+            //이것도 따로 구현 필요
     }
 }
