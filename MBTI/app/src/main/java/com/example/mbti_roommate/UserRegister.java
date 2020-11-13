@@ -206,7 +206,7 @@ public class UserRegister extends AppCompatActivity {
         String pcomment = comment_EditText.getText().toString();
 
         //연령
-        String page = comment_EditText.getText().toString();
+        String page = page_EditText.getText().toString();
 
         //연락처 --> 관련 내용이 xml에 없음
         //String pcontact = contact_EditText.getText().toString();
