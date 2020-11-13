@@ -2,35 +2,35 @@ module.exports = function(app,db){
     var express = require('express');
     var router = express.Router();
 
-    router.post('/User/Register',function(req,res,next){
-
-        db.query('SELECT * FROM User WHERE id = ?', [id], function( error, results, fields) {
+    router.post('/',function(req,res,next){
+        db.query(`SELECT * FROM User WHERE id= '${req.body.id}'`,function( error, results, fields) {
             if (error){
                 console.log("error ocurred", error);
                 res.send({"success":false,"reason":"unknown error"});
             } 
             else{
-                console.log(results);
                 if(results.length > 0)
                     res.send({"success":false,"reason":"duplicated id!"});
                 else{
                     var User = {
                         "id": req.body.id,
-                        "password":User.password,
+                        "password":req.body.password,
                         "pname":req.body.pname,
-                        "pgender":req.body.pgender,
-                        "pmbti":req.body.pmbti,
-                        "pdormitory":req.body.pdormitory,
-                        "univ":req.body.univ,
+                        "pgender":parseInt(req.body.pgender),
+                        "pmbti":parseInt(req.body.pmbti),
+                        "pdormitory":parseInt(req.body.pdormitory),
+                        "univ":parseInt(req.body.univ),
                         "email":req.body.email,
-                        "psmoke":req.body.psmoke,
+                        "psmoke":parseInt(req.body.psmoke),
                         "pcomment":req.body.pcomment,
-                        "page":req.body.page,
+                        "page":parseInt(req.body.page),
                         "pcontact":req.body.pcontact,
-                        "pstime":req.body.pstime,
-                        "pshour":req.body.pshour,
-                        "hasMatchBefore":false
+                        "pstime":parseInt(req.body.pstime),
+                        "pshour":parseInt(req.body.pshour),
+                        "hasMatchBefore":false,
+                        "isMatched":false
                     }
+                    console.log(User);
                     db.query('INSERT INTO User SET ?', User, function( error, results, fields) {
                         if (error){
                             console.log("error ocurred", error);

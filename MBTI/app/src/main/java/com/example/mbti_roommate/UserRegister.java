@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -48,6 +49,8 @@ public class UserRegister extends AppCompatActivity {
     private Spinner psTime_spinner;
     private Spinner psHour_spinner;
 
+    private Button signup_button;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
@@ -60,7 +63,7 @@ public class UserRegister extends AppCompatActivity {
         PMAM_spinner = findViewById(R.id.PMAM_spinner);
         psTime_spinner = findViewById(R.id.psTime_spinner);
         psHour_spinner = findViewById(R.id.psHour_spinner);
-
+        signup_button = findViewById(R.id.signup_button);
 
         ArrayAdapter mbtiAdapter = ArrayAdapter.createFromResource
                 (this, R.array.mbti_array, android.R.layout.simple_spinner_dropdown_item);
@@ -102,124 +105,127 @@ public class UserRegister extends AppCompatActivity {
 
         psHourAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         psHour_spinner.setAdapter(psHourAdapter);
-    }
-
-    //회원가입하기 버튼 클릭
-    public void signUpButtonClicked(View v) {
         id_EditText = (EditText) findViewById(R.id.userID_editText);
         pw_EditText = (EditText) findViewById(R.id.userPW_editText);
         pwCheck_EditText = (EditText) findViewById(R.id.userPWCheck_editText);
         name_EditText = (EditText) findViewById(R.id.userName_editText);
         final RadioGroup gender_RadioGroup = (RadioGroup) findViewById(R.id.genderRadioGroup);
         final RadioGroup isSmoker_RadioGroup = (RadioGroup) findViewById(R.id.isSmokerRadioGroup);
+        email_EditText = (EditText)findViewById(R.id.email_editText);
         comment_EditText = (EditText) findViewById(R.id.pcomment);
-        // contact_EditText = (EditText)findViewById(R.id.user_contact); --> 연락처 넣는 공간이 xml에 없음
+        //contact_EditText = (EditText)findViewById(R.id.user_contact);
 
-        //id
-        String id = id_EditText.getText().toString();
-        //password
-        String password = pw_EditText.getText().toString();
-        String password_check = pwCheck_EditText.getText().toString();
-        if (!password.equals(password_check)) {
-            //비밀번호 확인이랑 비밀번호 다를 때 이 부분 어떻게 해야할 지 모르겠음...어떻게 해야할 지?
-            //모든 내용이 다 적혀있는 상태로 해보고 싶은데 그걸 어떻게 하는 지 모르겠어요...잘 못 찾겠음...
-        }
 
-        //이름
-        String pname = name_EditText.getText().toString();
+        signup_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Log.e("here come in!","click begin");
+                String id = id_EditText.getText().toString();
+                String password = pw_EditText.getText().toString();
+                String pname = name_EditText.getText().toString();
+                //성별
+                int pgenderInt = 2;         //2는 에러값
+                RadioButton gender_RadioButton = (RadioButton) findViewById(gender_RadioGroup.getCheckedRadioButtonId());
+                if ((gender_RadioButton.getText().toString()).equals("남자"))
+                    pgenderInt = 0;
+                else if ((gender_RadioButton.getText().toString().equals("여자")))
+                    pgenderInt = 1;
+                String pgender = Integer.toString(pgenderInt);
+                //mbti
+                //순서는 아래와 같다(@values/array.xml이랑 똑같이 하긴 했는데 나중에 수정 필요하면 할께요)
+                //INTJ, INTP, ENTJ, ENTP, INFJ, INFP, ENFJ, ENFP, ISTJ, ISTP, ESTJ, ESTP, ISFJ, ISFP, ESFJ, ESFP
+                int pmbtiInt = 16;          // 16은 에러값
+                if ((mbti_spinner.getSelectedItem().toString()).equals("INTJ"))
+                    pmbtiInt = 0;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("INTP"))
+                    pmbtiInt = 1;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ENTJ"))
+                    pmbtiInt = 2;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ENTP"))
+                    pmbtiInt = 3;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("INFJ"))
+                    pmbtiInt = 4;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("INFP"))
+                    pmbtiInt = 5;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ENFJ"))
+                    pmbtiInt = 6;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ENFP"))
+                    pmbtiInt = 7;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ISTJ"))
+                    pmbtiInt = 8;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ISTP"))
+                    pmbtiInt = 9;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ESTJ"))
+                    pmbtiInt = 10;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ESTP"))
+                    pmbtiInt = 11;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ISFJ"))
+                    pmbtiInt = 12;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ISFP"))
+                    pmbtiInt = 13;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ESFJ"))
+                    pmbtiInt = 14;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ESFP"))
+                    pmbtiInt = 15;
+                String pmbti = Integer.toString(pmbtiInt);
+                //기숙사
+                int pdormitoryInt = 11110002;   //11110002는 에러값
+                if ((dorm_spinner.getSelectedItem().toString()).equals("첨성관"))
+                    pdormitoryInt = 11110001;
+                //else if((dorm_spinner.getSelectedItem().toString()).equals("누리관"))
+                String pdormitory = Integer.toString(pdormitoryInt);
+                //대학교
+                int univInt = 1113;             //1113은 에러값
+                if ((univ_spinner.getSelectedItem().toString()).equals("경북대학교(대구캠)"))
+                    univInt = 1111;
+                else if ((univ_spinner.getSelectedItem().toString()).equals("경북대학교(상주캠)"))
+                    univInt = 1112;
+                String univ = Integer.toString(univInt);
 
-        //성별
-        int pgenderInt = 2;         //2는 에러값
-        RadioButton gender_RadioButton = (RadioButton) findViewById(gender_RadioGroup.getCheckedRadioButtonId());
-        if ((gender_RadioButton.getText().toString()).equals("남자"))
-            pgenderInt = 0;
-        else if ((gender_RadioButton.getText().toString().equals("여자")))
-            pgenderInt = 1;
-        String pgender = Integer.toString(pgenderInt);
+                //흡연 유무
+                int psmokeBool = 2;         //2는 에러값
+                RadioButton psmoke_RadioButton = (RadioButton) findViewById(isSmoker_RadioGroup.getCheckedRadioButtonId());
+                if ((psmoke_RadioButton.getText().toString()).equals("예"))
+                    psmokeBool = 1;
+                else if ((gender_RadioButton.getText().toString().equals("아니오")))
+                    psmokeBool = 0;
+                String psmoke = String.valueOf(psmokeBool);
+                //자기에 대한 상세 설명
+                String pcomment = comment_EditText.getText().toString();
+                //연령
+                String page = age_spinner.getSelectedItem().toString();
+                //이메일
+                String email = email_EditText.getText().toString() + "@" + email_spinner.getSelectedItem().toString();
+                String pcontact = email;
 
-        //mbti
-        //순서는 아래와 같다(@values/array.xml이랑 똑같이 하긴 했는데 나중에 수정 필요하면 할께요)
-        //INTJ, INTP, ENTJ, ENTP, INFJ, INFP, ENFJ, ENFP, ISTJ, ISTP, ESTJ, ESTP, ISFJ, ISFP, ESFJ, ESFP
-        int pmbtiInt = 16;          // 16은 에러값
-        if ((mbti_spinner.getSelectedItem().toString()).equals("INTJ"))
-            pmbtiInt = 0;
-        else if ((mbti_spinner.getSelectedItem().toString()).equals("INTP"))
-            pmbtiInt = 1;
-        else if ((mbti_spinner.getSelectedItem().toString()).equals("ENTJ"))
-            pmbtiInt = 2;
-        else if ((mbti_spinner.getSelectedItem().toString()).equals("ENTP"))
-            pmbtiInt = 3;
-        else if ((mbti_spinner.getSelectedItem().toString()).equals("INFJ"))
-            pmbtiInt = 4;
-        else if ((mbti_spinner.getSelectedItem().toString()).equals("INFP"))
-            pmbtiInt = 5;
-        else if ((mbti_spinner.getSelectedItem().toString()).equals("ENFJ"))
-            pmbtiInt = 6;
-        else if ((mbti_spinner.getSelectedItem().toString()).equals("ENFP"))
-            pmbtiInt = 7;
-        else if ((mbti_spinner.getSelectedItem().toString()).equals("ISTJ"))
-            pmbtiInt = 8;
-        else if ((mbti_spinner.getSelectedItem().toString()).equals("ISTP"))
-            pmbtiInt = 9;
-        else if ((mbti_spinner.getSelectedItem().toString()).equals("ESTJ"))
-            pmbtiInt = 10;
-        else if ((mbti_spinner.getSelectedItem().toString()).equals("ESTP"))
-            pmbtiInt = 11;
-        else if ((mbti_spinner.getSelectedItem().toString()).equals("ISFJ"))
-            pmbtiInt = 12;
-        else if ((mbti_spinner.getSelectedItem().toString()).equals("ISFP"))
-            pmbtiInt = 13;
-        else if ((mbti_spinner.getSelectedItem().toString()).equals("ESFJ"))
-            pmbtiInt = 14;
-        else if ((mbti_spinner.getSelectedItem().toString()).equals("ESFP"))
-            pmbtiInt = 15;
-        String pmbti = Integer.toString(pmbtiInt);
+                //수면 시간, 수면 시각
+                int pmam = 0;
+                if ((PMAM_spinner.getSelectedItem().toString()).equals("PM"))
+                    pmam = 12;
+                String pstime = Integer.toString((pmam + Integer.parseInt(psTime_spinner.getSelectedItem().toString())));
+                String pshour = psHour_spinner.getSelectedItem().toString();
+                Log.e("id",id);
+                Log.e("password",password);
+                Log.e("pname",pname);
+                Log.e("pgender",pgender);
+                Log.e("pmbti",pmbti);
+                Log.e("pdormitory",pdormitory);
+                Log.e("univ",univ);
+                Log.e("email",email);
+                Log.e("psmoke",psmoke);
+                Log.e("page",page);
+                Log.e("pcontact",pcontact);
+                Log.e("pstime",pstime);
+                Log.e("pshour",pshour);
+                sendRequest(id, password, pname, pgender, pmbti, pdormitory, univ, email, psmoke, pcomment, page, pcontact, pstime, pshour);
 
-        //기숙사
-        int pdormitoryInt = 11110002;   //11110002는 에러값
-        if ((dorm_spinner.getSelectedItem().toString()).equals("첨성관"))
-            pdormitoryInt = 11110001;
-        //else if((dorm_spinner.getSelectedItem().toString()).equals("누리관"))
-        String pdormitory = Integer.toString(pdormitoryInt);
+            }
+        });
+    }
 
-        //대학교
-        int univInt = 1113;             //1113은 에러값
-        if ((univ_spinner.getSelectedItem().toString()).equals("경북대학교(대구캠)"))
-            univInt = 1111;
-        else if ((univ_spinner.getSelectedItem().toString()).equals("경북대학교(상주캠)"))
-            univInt = 1112;
-        String univ = Integer.toString(univInt);
+    //회원가입하기 버튼 클릭
+    public void signUpButtonClicked(View v) {
 
-        //이메일
-        String email = email_EditText.getText().toString() + "@" + email_spinner.getSelectedItem().toString();
-
-        //흡연 유무
-        boolean psmokeBool = false;         //2는 에러값
-        RadioButton psmoke_RadioButton = (RadioButton) findViewById(isSmoker_RadioGroup.getCheckedRadioButtonId());
-        if ((psmoke_RadioButton.getText().toString()).equals("예"))
-            psmokeBool = true;
-        else if ((gender_RadioButton.getText().toString().equals("아니오")))
-            psmokeBool = false;
-        String psmoke = Boolean.toString(psmokeBool);
-
-        //자기에 대한 상세 설명
-        String pcomment = comment_EditText.getText().toString();
-
-        //연령
-        String page = page_EditText.getText().toString();
-
-        //연락처 --> 관련 내용이 xml에 없음
-        //String pcontact = contact_EditText.getText().toString();
-        String pcontact = email;
-
-        //수면 시간, 수면 시각
-        int pmam = 0;
-        if ((PMAM_spinner.getSelectedItem().toString()).equals("PM"))
-            pmam = 12;
-        String pstime = Integer.toString((pmam + Integer.parseInt(psTime_spinner.getSelectedItem().toString())));
-        String pshour = psHour_spinner.getSelectedItem().toString();
-
-        sendRequest(id, password, pname, pgender, pmbti, pdormitory, univ, email, psmoke, pcomment, page, pcontact, pstime, pshour);
     }
 
     public void openMainPage(){
@@ -229,8 +235,8 @@ public class UserRegister extends AppCompatActivity {
 
     public void sendRequest(final String id, final String password, final String pname, final String pgender, final String pmbti, final String pdormitory, final String univ, final String email,
                             final String psmoke, final String pcomment, final String page, final String pcontact, final String pstime, final String pshour){
-        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);  //이 에러가 도대체 뭘까요??????????????????
-        String url = "http://15.164.217.53:5000/User/Login";
+        RequestQueue requestQueue = Volley.newRequestQueue(UserRegister.this);  //이 에러가 도대체 뭘까요??????????????????
+        String url = urlManager.registerURL;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
