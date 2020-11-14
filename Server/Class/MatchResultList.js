@@ -86,8 +86,37 @@ module.exports = class MatchResultList{
                 items+="]}";
                 console.log(`items: ${items}`);
                 items= JSON.parse(items);
-                console.log(items);
-                res.send(items);
+
+                db.query(`DELETE FROM SavedMatch WHERE id = '${userData.id}'`, function( error, results, fields) {
+                    if (error)
+                        console.log("error ocurred", error);
+                    else{
+                        let list = items["Users"];
+                        let values = [];
+                        for(var i =0;i<list.length;++i){
+                            var obj = []
+                            obj.push(userData.id);
+                            obj.push(list[i].id);
+                            obj.push("waiting");
+                            values.push(obj);
+                        }
+                        db.query(`INSERT INTO SavedMatch (id,otherid,status) VALUES ?`,[values],function( error, results, fields) {
+                            if (error)
+                                console.log("error ocurred", error);
+                            else{
+                                db.query(`UPDATE User SET hasMatchBefore=1 WHERE id='${userData.id}'`,function( error, results, fields) {
+                                    if (error)
+                                        console.log("error ocurred", error);
+                                    else{
+                                        console.log(items);
+                                        res.send(items);
+                                    }
+                                });
+                            }
+
+                        });
+                    }
+                });
             }
         });
     }

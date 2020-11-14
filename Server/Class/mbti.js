@@ -1,5 +1,5 @@
 module.exports = {
-    mbtiInfo : {
+    "mbtiInfo" : {
         INFP : {
             INFP:5,
             ENFP:5,

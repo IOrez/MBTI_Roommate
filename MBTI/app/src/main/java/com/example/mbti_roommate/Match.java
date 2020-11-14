@@ -66,7 +66,7 @@ public class Match extends AppCompatActivity {
     }
     public void matchButtonClick(View v){               //매칭하기 버튼 클릭 시 호출 함수
           User appuser = User.getInstance();
-          sendRequest(
+          sendRequest(0,
                appuser.info.getId(),
                appuser.info.getPassword(),
                appuser.info.getPname(),
@@ -105,12 +105,33 @@ public class Match extends AppCompatActivity {
     public void openSavedMatchResults(View v){          //이전 매칭 결과 불러오기 클릭 시 호출 함수
 
             //이것도 따로 구현 필요
+        User appuser = User.getInstance();
+        sendRequest(1,
+                appuser.info.getId(),
+                appuser.info.getPassword(),
+                appuser.info.getPname(),
+                String.valueOf(appuser.info.getPgender()),
+                String.valueOf(appuser.info.getPmbti()),
+                String.valueOf(appuser.info.getPdormitory()),
+                String.valueOf(appuser.info.getUniv()),
+                appuser.info.getEmail(),
+                String.valueOf(appuser.info.getPsmoke()),
+                appuser.info.getPcomment(),
+                String.valueOf(appuser.info.getPage()),
+                appuser.info.getPcontact(),
+                String.valueOf(appuser.info.getPstime()),
+                String.valueOf(appuser.info.getPshour())
+        );
     }
 
-    public void sendRequest(final String id, final String password, final String pname, final String pgender, final String pmbti, final String pdormitory, final String univ, final String email,
+    public void sendRequest(final int type,final String id, final String password, final String pname, final String pgender, final String pmbti, final String pdormitory, final String univ, final String email,
                             final String psmoke, final String pcomment, final String page, final String pcontact, final String pstime, final String pshour){
         RequestQueue requestQueue = Volley.newRequestQueue(Match.this);
-        String url = urlManager.newMatchURL;
+        String url;
+        if(type ==0)
+            url = urlManager.newMatchURL;
+        else
+            url = urlManager.prevMatchURL;
         Log.e("url",url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -151,7 +172,8 @@ public class Match extends AppCompatActivity {
                                 e.printStackTrace();
                             }
 
-
+                            User appuser = User.getInstance();
+                            appuser.info.setHasMatchBefore(1);
                             Bundle bundle = new Bundle();
                             bundle.putSerializable("UserInfos",uInfos);
                             intent.putExtras(bundle);
