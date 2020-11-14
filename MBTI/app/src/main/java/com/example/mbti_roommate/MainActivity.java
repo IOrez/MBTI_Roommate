@@ -77,23 +77,22 @@ public class MainActivity extends AppCompatActivity {
                         boolean isSuccessed = jsonObj.getBoolean("success");
                         Log.e("Success",String.valueOf(isSuccessed));
                         if(isSuccessed) {
-                            appuser.id = jsonObj.getString("id");
-                            appuser.password = jsonObj.getString("password");
-                            appuser.pname = jsonObj.getString("pname");
-                            appuser.pgender = jsonObj.getInt("pgender");
-                            appuser.pmbti = jsonObj.getInt("pmbti");
-                            appuser.pdormitory = jsonObj.getInt("pdormitory");
-                            appuser.univ = jsonObj.getInt("univ");
-                            appuser.email = jsonObj.getString("email");
-                            appuser.psmoke = jsonObj.getInt("psmoke");
-                            appuser.pcomment = jsonObj.getString("pcomment");
-                            appuser.page = jsonObj.getInt("page");
-                            appuser.pcontact = jsonObj.getString("pcontact");
-                            appuser.pstime = jsonObj.getInt("pstime");
-                            appuser.pshour = jsonObj.getInt("pshour");
-                            appuser.hasMatchBefore = jsonObj.getInt("hasMatchBefore");
-                            User temp = (User)User.getInstance();
-                            Log.e("name",temp.pname);
+                            appuser.info.setId(jsonObj.getString("id"));
+                            appuser.info.setPassword(jsonObj.getString("password"));
+                            appuser.info.setPname(jsonObj.getString("pname"));
+                            appuser.info.setPgender(jsonObj.getInt("pgender"));
+                            appuser.info.setPmbti(jsonObj.getInt("pmbti"));
+                            appuser.info.setPdormitory(jsonObj.getInt("pdormitory"));
+                            appuser.info.setUniv(jsonObj.getInt("univ"));
+                            appuser.info.setEmail(jsonObj.getString("email"));
+                            appuser.info.setPsmoke(jsonObj.getInt("psmoke"));
+                            appuser.info.setPcomment(jsonObj.getString("pcomment"));
+                            appuser.info.setPage(jsonObj.getInt("page"));
+                            appuser.info.setPcontact(jsonObj.getString("pcontact"));
+                            appuser.info.setPstime(jsonObj.getInt("pstime"));
+                            appuser.info.setPshour(jsonObj.getInt("pshour"));
+                            appuser.info.setHasMatchBefore(jsonObj.getInt("hasMatchBefore"));
+                            appuser.info.setIsMatched(jsonObj.getInt("isMatched"));
                             openMainPage();
                         }
                         else{

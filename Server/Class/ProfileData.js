@@ -1,5 +1,5 @@
 module.exports =class ProfileData{
-    constructor(id,password,pname,pgender,pmbti,pdormitory,univ,email,psmoke,pcomment,page,pcontact,pstime,pshour,hasMatchBefore)
+    constructor(id,password,pname,pgender,pmbti,pdormitory,univ,email,psmoke,pcomment,page,pcontact,pstime,pshour,hasMatchBefore,isMatched)
     {
         this.id = id;
         this.password = password;
@@ -15,7 +15,8 @@ module.exports =class ProfileData{
         this.pcontact = pcontact;
         this.pstime = pstime;
         this.pshour = pshour;
-        this.hasMatchBefore = this.hasMatchBefore;
+        this.hasMatchBefore = hasMatchBefore;
+        this.isMatched = isMatched;
     }
 };
 

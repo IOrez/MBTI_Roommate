@@ -5,15 +5,12 @@ module.exports = function(app,db){
     router.post('/',function(req,res,next){
         var id = req.body.id;
         var password = req.body.password;
-        console.log(id);
-        console.log(password);
         db.query('SELECT * FROM User WHERE id = ?', [id], function( error, results, fields) {
             if (error){
                 console.log("error ocurred", error);
                 res.send({"success":false,"reason":"unknown error"});
             } 
             else{
-                console.log(results);
                 if(results.length > 0) {
                     if(results[0].password == password)
                         res.send({
@@ -32,7 +29,8 @@ module.exports = function(app,db){
                             "pcontact":results[0].pcontact,
                             "pstime":results[0].pstime,
                             "pshour":results[0].pshour,
-                            "hasMatchBefore":results[0].hasMatchBefore
+                            "hasMatchBefore":results[0].hasMatchBefore,
+                            "isMatched":results[0].isMatched
                         });
                     else
                         res.send({"success":false,"reason":"id or password not correct!"});

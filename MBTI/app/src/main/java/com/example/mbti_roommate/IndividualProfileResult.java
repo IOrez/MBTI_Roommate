@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONException;
 import org.w3c.dom.Text;
 
 //상대 프로필 열람 클래스임. 매칭된 상대 개개인의 상세 프로필이라고 보면 된다.
@@ -46,6 +47,9 @@ public class IndividualProfileResult extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.individual_profile_result);
 
+        Intent intent = getIntent();
+        DormInfo dinfo= DormInfo.getInstance();
+        UserInfo userInfo = new UserInfo((UserInfo)intent.getSerializableExtra("UserInfo"));
         //레이아웃 구성 위젯 연결 및 초기화 단계
         matchResultUserMBTIImage = (ImageView)findViewById(R.id.match_result_user_mbti_image);
         matchResultUsername = (TextView)findViewById(R.id.match_result_username);
@@ -60,9 +64,31 @@ public class IndividualProfileResult extends AppCompatActivity {
         matchResultSleepTime = (TextView)findViewById(R.id.match_result_sleep_time);
         matchResultSleepHour = (TextView)findViewById(R.id.match_result_sleep_hour);
 
+        matchResultUserMBTIImage.setImageResource(userInfo.getMbti_image());
+        matchResultUsername.setText(userInfo.getPname());
+        matchResultUserMBTI.setText(MbtiInfo.MbtiInfo[userInfo.getPmbti()]);
+        matchResultUserAge.setText(String.valueOf(userInfo.getPage()));
+        matchResultUserMajor.setText("컴퓨터학과");
+        if(userInfo.getPsmoke()==1)
+            matchResultUserSmoke.setText("YES");
+        else
+            matchResultUserSmoke.setText("NO");
+
+        matchResultUserLifeStyle.setText(userInfo.getPcomment());
+        if(userInfo.getPgender()==0)
+            matchResultGenderResult.setText("남자");
+        else
+            matchResultGenderResult.setText("여자");
+
+        try{
+            matchResultDormitory.setText(dinfo.getUnivObjects().getString(String.valueOf(userInfo.getPdormitory())));
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        matchResultContactInfo.setText(userInfo.getPcontact());
+        matchResultSleepHour.setText(String.valueOf(userInfo.getPshour()));
+        matchResultSleepTime.setText(String.valueOf(userInfo.getPstime()));
     }
-
-
 }
 
 
