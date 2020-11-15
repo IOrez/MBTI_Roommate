@@ -43,7 +43,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="400dp"
         android:text="프로필 수정"
         android:textStyle="bold"
@@ -54,7 +54,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="170dp"
+        android:layout_marginStart="115dp"
         android:layout_marginTop="400dp"
         android:text="요청보관함"
         android:textStyle="bold"
@@ -65,7 +65,18 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="300dp"
+        android:layout_marginStart="215dp"
+        android:layout_marginTop="400dp"
+        android:text="받은 요청"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:background="@drawable/border">
+    </Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="315dp"
         android:layout_marginTop="400dp"
         android:text="차단프로필"
         android:textStyle="bold"
