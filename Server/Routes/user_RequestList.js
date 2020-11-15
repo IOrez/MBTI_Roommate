@@ -13,10 +13,10 @@ module.exports = function(app,db){
             }
             else{
                 var items="{";
-                items+=`"success":"true","Users":[{`
+                items+=`"success":"true","Users":[`
                 for(var i =0; i<results.length;++i){
                     var obj =
-                        '"id":'+ `"${results[i].id}",`+
+                        '{"id":'+ `"${results[i].id}",`+
                         '"password":'+`"${results[i].password}",`+
                         '"pname":'+`"${results[i].pname}",`+
                         '"pgender":'+`${results[i].pgender},`+
@@ -36,9 +36,8 @@ module.exports = function(app,db){
                         "}"
                    
                     items += obj;
-                    if(i+1<results.length)items+=",{";
+                    if(i+1<results.length)items+=",";
                 }
-                if(results.length==0)items+="}";
                 items+="]}";
 
                 items= JSON.parse(items);

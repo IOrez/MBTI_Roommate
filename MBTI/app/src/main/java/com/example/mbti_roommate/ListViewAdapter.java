@@ -89,6 +89,7 @@ public class ListViewAdapter extends ArrayAdapter<UserInfo> implements View.OnCl
             @Override
             public void onClick(View v) {
                 final User appuser = User.getInstance();
+                Log.e("otherid",listViewItem.getId());
                 sendRequest(0,appuser.info.getId(),listViewItem.getId(),Pos);
             }
         });

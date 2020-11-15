@@ -1,6 +1,8 @@
 package com.example.mbti_roommate;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -85,6 +88,11 @@ public class ResponseListViewAdapter extends ArrayAdapter<UserInfo> implements V
             @Override
             public void onClick(View v) {
                 final User appuser = User.getInstance();
+                if(appuser.info.getIsMatched()==1){
+                    Toast info = Toast.makeText(context,"이미 정해진 룸메이트가 존재합니다.!",Toast.LENGTH_LONG);
+                    info.show();
+                    return;
+                }
                 sendRequest(0,appuser.info.getId(),listViewItem.getId(),Pos);
             }
         });
@@ -133,9 +141,32 @@ public class ResponseListViewAdapter extends ArrayAdapter<UserInfo> implements V
                         boolean isSuccessed = jsonObj.getBoolean("success");
                         Log.e("Success",String.valueOf(isSuccessed));
                         if(isSuccessed) {
+                            User appuser = User.getInstance();
                             Toast info;
-                            if(type==0)
+                            info = Toast.makeText(context,"요청을 승락하였습니다.",Toast.LENGTH_LONG);
+                            if(type==0){
                                 info = Toast.makeText(context,"요청을 승락하였습니다.",Toast.LENGTH_LONG);
+                                appuser.info.setIsMatched(1);
+                                appuser.info.setMatched_user(new UserInfo(
+                                        jsonObj.getString("id"),
+                                        jsonObj.getString("password"),
+                                        jsonObj.getString("pname"),
+                                        jsonObj.getInt("pgender"),
+                                        jsonObj.getInt("pmbti"),
+                                        jsonObj.getInt("pdormitory"),
+                                        jsonObj.getInt("univ"),
+                                        jsonObj.getInt("pmajor"),
+                                        jsonObj.getString("email"),
+                                        jsonObj.getInt("psmoke"),
+                                        jsonObj.getString("pcomment"),
+                                        jsonObj.getInt("page"),
+                                        jsonObj.getString("pcontact"),
+                                        jsonObj.getInt("pstime"),
+                                        jsonObj.getInt("pshour"),
+                                        jsonObj.getInt("hasMatchBefore"),
+                                        0,
+                                        null));
+                            }
                             else
                                 info = Toast.makeText(context,"요청을 거부하고 차단하였습니다.",Toast.LENGTH_LONG);
                             info.show();

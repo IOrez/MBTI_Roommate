@@ -151,33 +151,28 @@ public class Match extends AppCompatActivity {
                             Intent intent = new Intent(getApplicationContext(), MatchResult.class);
                             ArrayList<UserInfo> uInfos = new ArrayList<UserInfo>();
                             JSONArray UserObjs = jsonObj.getJSONArray("Users");
-                            try {
-                                for(int i =0;i<UserObjs.length();++i) {
-                                    JSONObject userObj = UserObjs.getJSONObject(i);
-                                    uInfos.add(new UserInfo(
-                                            userObj.getString("id"),
-                                            userObj.getString("password"),
-                                            userObj.getString("pname"),
-                                            userObj.getInt("pgender"),
-                                            userObj.getInt("pmbti"),
-                                            userObj.getInt("pdormitory"),
-                                            userObj.getInt("univ"),
-                                            userObj.getInt("pmajor"),
-                                            userObj.getString("email"),
-                                            userObj.getInt("psmoke"),
-                                            userObj.getString("pcomment"),
-                                            userObj.getInt("page"),
-                                            userObj.getString("pcontact"),
-                                            userObj.getInt("pstime"),
-                                            userObj.getInt("pshour"),
-                                            userObj.getInt("hasMatchBefore"),
-                                            userObj.getInt("isMatched"),
-                                            null));
-                                }
-                            }catch (JSONException e){
-                                e.printStackTrace();
+                            for(int i =0;i<UserObjs.length();++i) {
+                                JSONObject userObj = UserObjs.getJSONObject(i);
+                                uInfos.add(new UserInfo(
+                                        userObj.getString("id"),
+                                        userObj.getString("password"),
+                                        userObj.getString("pname"),
+                                        userObj.getInt("pgender"),
+                                        userObj.getInt("pmbti"),
+                                        userObj.getInt("pdormitory"),
+                                        userObj.getInt("univ"),
+                                        userObj.getInt("pmajor"),
+                                        userObj.getString("email"),
+                                        userObj.getInt("psmoke"),
+                                        userObj.getString("pcomment"),
+                                        userObj.getInt("page"),
+                                        userObj.getString("pcontact"),
+                                        userObj.getInt("pstime"),
+                                        userObj.getInt("pshour"),
+                                        userObj.getInt("hasMatchBefore"),
+                                        0,
+                                        null));
                             }
-
                             User appuser = User.getInstance();
                             appuser.info.setHasMatchBefore(1);
                             Bundle bundle = new Bundle();

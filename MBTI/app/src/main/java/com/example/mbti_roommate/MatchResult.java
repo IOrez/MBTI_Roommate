@@ -53,8 +53,9 @@ public class MatchResult extends AppCompatActivity implements ListViewAdapter.Li
 
         Intent intent = getIntent();
         Bundle bundleObject = getIntent().getExtras();
+        ArrayList<UserInfo> list = new ArrayList<UserInfo>();
         ArrayList<UserInfo> uInfos = (ArrayList<UserInfo>)bundleObject.getSerializable("UserInfos");
-        adapter = new ListViewAdapter(this,R.layout.profile_default_info,uInfos,this);
+        adapter = new ListViewAdapter(this,R.layout.profile_default_info,list,this);
         listView = findViewById(R.id.profilelistView);
         rematchButton = findViewById(R.id.rematch_btn);
         listView.setAdapter(adapter);
