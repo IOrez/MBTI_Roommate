@@ -229,7 +229,7 @@ public class UserRegister extends AppCompatActivity {
     }
 
     public void openMainPage(){
-        Intent intent = new Intent(this, BottomNavigationActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
