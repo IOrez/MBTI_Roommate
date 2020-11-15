@@ -26,7 +26,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".SearchProfile"/>
-
+        <activity android:name=".DenyActivity"/>
+        <activity android:name=".ProfileEditActivity"/>
+        <activity android:name=".RequestActivity"/>
+        <activity android:name=".ResponseActivity"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
