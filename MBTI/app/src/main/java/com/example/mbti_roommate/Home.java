@@ -6,13 +6,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 //별 기능이 있는 클래스는 아니고, 그냥 16가지 MBTI 중에 궁금한 유형이 있으면 클릭 시 설명하는 웹페이지로 이동하게끔 코드를 짬
@@ -176,22 +192,123 @@ public class Home extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void goDenyActivity(View v){
-        Intent intent = new Intent(this, DenyActivity.class);
-        startActivity(intent);
-    }
-
     public void goRequestActivity(View v){
-        Intent intent = new Intent(this, RequestActivity.class);
-        startActivity(intent);
+        User appuser = User.getInstance();
+        if(appuser.info.getIsMatched()==1) {
+            Toast info = Toast.makeText(getApplicationContext(),"이미 정해진 룸메이트가 존재합니다.!",Toast.LENGTH_LONG);
+            info.show();
+            return;
+        }
+        sendRequest(0,User.getInstance().info.getId());
     }
     public void goResponseActivity(View v){
-        Intent intent = new Intent(this, ResponseActivity.class);
-        startActivity(intent);
+        User appuser = User.getInstance();
+        if(appuser.info.getIsMatched()==1) {
+            Toast info = Toast.makeText(getApplicationContext(),"이미 정해진 룸메이트가 존재합니다.!",Toast.LENGTH_LONG);
+            info.show();
+            return;
+        }
+        sendRequest(1,User.getInstance().info.getId());
+    }
+
+    public void goDenyActivity(View v){
+
+        sendRequest(2,User.getInstance().info.getId());
     }
 
     public void gotoUrl(String s){
         Uri uri = Uri.parse(s);
         startActivity(new Intent(Intent.ACTION_VIEW, uri));
+    }
+
+    public void sendRequest(final int type,final String id){
+        RequestQueue requestQueue = Volley.newRequestQueue(Home.this);
+        String url;
+        if(type ==0)
+            url = urlManager.requestListURL;
+        else if(type==1)
+            url = urlManager.responseListURL;
+        else
+            url = urlManager.denyListURL;
+        Log.e("url",url);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if(!response.isEmpty()){
+                    try {
+                        JSONObject jsonObj = new JSONObject(response);
+                        boolean isSuccessed = jsonObj.getBoolean("success");
+                        Log.e("Success",String.valueOf(isSuccessed));
+                        if(isSuccessed) {
+                            Intent intent;
+                            if(type==0)
+                                intent = new Intent(getApplicationContext(), RequestActivity.class);
+                            else if(type==1)
+                                intent = new Intent(getApplicationContext(), ResponseActivity.class);
+                            else
+                                intent = new Intent(getApplicationContext(), DenyActivity.class);
+                            ArrayList<UserInfo> uInfos = new ArrayList<UserInfo>();
+                            JSONArray UserObjs = jsonObj.getJSONArray("Users");
+                            try {
+                                for(int i =0;i<UserObjs.length();++i) {
+                                    JSONObject userObj = UserObjs.getJSONObject(i);
+                                    uInfos.add(new UserInfo(
+                                            userObj.getString("id"),
+                                            userObj.getString("password"),
+                                            userObj.getString("pname"),
+                                            userObj.getInt("pgender"),
+                                            userObj.getInt("pmbti"),
+                                            userObj.getInt("pdormitory"),
+                                            userObj.getInt("univ"),
+                                            userObj.getInt("pmajor"),
+                                            userObj.getString("email"),
+                                            userObj.getInt("psmoke"),
+                                            userObj.getString("pcomment"),
+                                            userObj.getInt("page"),
+                                            userObj.getString("pcontact"),
+                                            userObj.getInt("pstime"),
+                                            userObj.getInt("pshour"),
+                                            userObj.getInt("hasMatchBefore"),
+                                            userObj.getInt("isMatched"),
+                                            null));
+                                }
+                            }catch (JSONException e){
+                                e.printStackTrace();
+                            }
+
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable("UserInfos",uInfos);
+                            intent.putExtras(bundle);
+                            startActivity(intent);
+                        }
+                        else{
+                            Toast info = Toast.makeText(getApplicationContext(),jsonObj.getString("reason"),Toast.LENGTH_LONG);
+                            info.show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("Error",error.toString());
+            }
+        }){
+            @Override
+            protected Map<String,String> getParams() {
+                Map<String,String> params = new HashMap<String,String>();
+                params.put("id",id);
+                return params;
+            }
+            @Override
+            public  Map<String,String> getHeaders() throws AuthFailureError {
+                Map<String,String> params = new HashMap<String,String>();
+                params.put("Context-Type","application/x-www-form-urlencoded");
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
     }
 }

@@ -68,7 +68,7 @@ public class IndividualProfileResult extends AppCompatActivity {
         matchResultUsername.setText(userInfo.getPname());
         matchResultUserMBTI.setText(MbtiInfo.MbtiInfo[userInfo.getPmbti()]);
         matchResultUserAge.setText(String.valueOf(userInfo.getPage()));
-        matchResultUserMajor.setText("컴퓨터학과");
+
         if(userInfo.getPsmoke()==1)
             matchResultUserSmoke.setText("YES");
         else
@@ -81,6 +81,8 @@ public class IndividualProfileResult extends AppCompatActivity {
             matchResultGenderResult.setText("여자");
 
         try{
+            matchResultDormitory.setText(dinfo.getMajorObjects().getString(String.valueOf(userInfo.getPmajor())));
+
             matchResultDormitory.setText(dinfo.getDormObjects().getString(String.valueOf(userInfo.getPdormitory())));
         }catch (JSONException e){
             e.printStackTrace();

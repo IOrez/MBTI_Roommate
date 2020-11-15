@@ -65,13 +65,21 @@ public class Match extends AppCompatActivity {
 
     }
     public void matchButtonClick(View v){               //매칭하기 버튼 클릭 시 호출 함수
-          User appuser = User.getInstance();
+
+            User appuser = User.getInstance();
+            if(appuser.info.getIsMatched()==1) {
+                Toast info = Toast.makeText(getApplicationContext(),"이미 정해진 룸메이트가 존재합니다.!",Toast.LENGTH_LONG);
+                info.show();
+                return;
+            }
+
           sendRequest(0,
                appuser.info.getId(),
                appuser.info.getPassword(),
                appuser.info.getPname(),
                String.valueOf(appuser.info.getPgender()),
                String.valueOf(appuser.info.getPmbti()),
+               String.valueOf(appuser.info.getPmajor()),
                String.valueOf(appuser.info.getPdormitory()),
                String.valueOf(appuser.info.getUniv()),
                appuser.info.getEmail(),
@@ -83,29 +91,15 @@ public class Match extends AppCompatActivity {
                   String.valueOf(appuser.info.getPshour())
           );
 
-
-
-
-//        Intent intent = new Intent(getApplicationContext(), MatchResult.class);
-//        ArrayList<UserInfo> uInfos = new ArrayList<UserInfo>();
-//        uInfos.add(new UserInfo("guest2","password","이종제",
-//                1,12,11110001,1111,
-//                "kkk1111@knu.ac.kr",0,"Hello!",25,
-//                "전화번호",12,6,0,0,null));
-//        uInfos.add(new UserInfo("guest3","password","김수현",1,5,11110001,1111,
-//                "ijk2020@knu.ac.kr",1,"hi!",25,
-//                "삐삐번호",10,7,0,0,null));
-//
-//        Bundle bundle = new Bundle();
-//        bundle.putSerializable("UserInfos",uInfos);
-//        intent.putExtras(bundle);
-//        startActivity(intent);
     }
 
     public void openSavedMatchResults(View v){          //이전 매칭 결과 불러오기 클릭 시 호출 함수
-
-            //이것도 따로 구현 필요
         User appuser = User.getInstance();
+        if(appuser.info.getIsMatched()==1) {
+            Toast info = Toast.makeText(getApplicationContext(),"이미 정해진 룸메이트가 존재합니다.!",Toast.LENGTH_LONG);
+            info.show();
+            return;
+        }
         sendRequest(1,
                 appuser.info.getId(),
                 appuser.info.getPassword(),
@@ -114,6 +108,7 @@ public class Match extends AppCompatActivity {
                 String.valueOf(appuser.info.getPmbti()),
                 String.valueOf(appuser.info.getPdormitory()),
                 String.valueOf(appuser.info.getUniv()),
+                String.valueOf(appuser.info.getPmajor()),
                 appuser.info.getEmail(),
                 String.valueOf(appuser.info.getPsmoke()),
                 appuser.info.getPcomment(),
@@ -125,11 +120,17 @@ public class Match extends AppCompatActivity {
     }
 
     public void openSearchProfile(View v){
+        User appuser = User.getInstance();
+        if(appuser.info.getIsMatched()==1) {
+            Toast info = Toast.makeText(getApplicationContext(),"이미 정해진 룸메이트가 존재합니다.!",Toast.LENGTH_LONG);
+            info.show();
+            return;
+        }
         Intent intent = new Intent(getApplicationContext(), SearchProfile.class);
         startActivity(intent);
     }
 
-    public void sendRequest(final int type,final String id, final String password, final String pname, final String pgender, final String pmbti, final String pdormitory, final String univ, final String email,
+    public void sendRequest(final int type,final String id, final String password, final String pname, final String pgender, final String pmbti,final String pmajor, final String pdormitory, final String univ, final String email,
                             final String psmoke, final String pcomment, final String page, final String pcontact, final String pstime, final String pshour){
         RequestQueue requestQueue = Volley.newRequestQueue(Match.this);
         String url;
@@ -153,7 +154,6 @@ public class Match extends AppCompatActivity {
                             try {
                                 for(int i =0;i<UserObjs.length();++i) {
                                     JSONObject userObj = UserObjs.getJSONObject(i);
-                                    userObj.getString("id");
                                     uInfos.add(new UserInfo(
                                             userObj.getString("id"),
                                             userObj.getString("password"),
@@ -162,6 +162,7 @@ public class Match extends AppCompatActivity {
                                             userObj.getInt("pmbti"),
                                             userObj.getInt("pdormitory"),
                                             userObj.getInt("univ"),
+                                            userObj.getInt("pmajor"),
                                             userObj.getString("email"),
                                             userObj.getInt("psmoke"),
                                             userObj.getString("pcomment"),
@@ -209,6 +210,7 @@ public class Match extends AppCompatActivity {
                 params.put("pmbti", pmbti);
                 params.put("pdormitory", pdormitory);
                 params.put("univ", univ);
+                params.put("pmajor",pmajor);
                 params.put("email", email);
                 params.put("psmoke", psmoke);
                 params.put("pcomment", pcomment);

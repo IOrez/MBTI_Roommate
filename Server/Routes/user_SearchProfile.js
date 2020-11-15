@@ -23,6 +23,7 @@ module.exports = function(app,db){
                         results[i].pmbti,
                         results[i].pdormitory,
                         results[i].univ,
+                        results[i].pmajor,
                         results[i].email,
                         results[i].psmoke,
                         results[i].pcomment,
@@ -47,6 +48,7 @@ module.exports = function(app,db){
                         '"pmbti":'+`${profileNodes[i].pmbti},`+
                         '"pdormitory":'+`${profileNodes[i].pdormitory},`+
                         '"univ":'+`${profileNodes[i].univ},`+
+                        '"pmajor":'+`${profileNodes[i].pmajor},`+
                         '"email":'+`"${profileNodes[i].email}",`+
                         '"psmoke":'+`${profileNodes[i].psmoke},`+
                         '"pcomment":'+`"${profileNodes[i].pcomment}",`+

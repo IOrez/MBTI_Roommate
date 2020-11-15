@@ -24,10 +24,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SearchProfile extends AppCompatActivity {
+public class SearchProfile extends AppCompatActivity implements ListViewAdapter.ListBtnClickListener{
     TextView dormName;
     EditText userName;
     ListView searchListView;
@@ -60,10 +61,11 @@ public class SearchProfile extends AppCompatActivity {
     public void sendRequest(final String pdormitory, final String pname){
         RequestQueue requestQueue = Volley.newRequestQueue(SearchProfile.this);
         String url = urlManager.SearchProfURL;
+        ArrayList<UserInfo> ulist = new ArrayList<UserInfo>();
+        adapter = new ListViewAdapter(getApplicationContext(),R.layout.profile_default_info,ulist,this);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                adapter = new ListViewAdapter();
                 searchListView.setAdapter(adapter);
                 searchListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
@@ -92,6 +94,7 @@ public class SearchProfile extends AppCompatActivity {
                                         userObj.getInt("pmbti"),
                                         userObj.getInt("pdormitory"),
                                         userObj.getInt("univ"),
+                                        userObj.getInt("pmajor"),
                                         userObj.getString("email"),
                                         userObj.getInt("psmoke"),
                                         userObj.getString("pcomment"),
@@ -130,5 +133,13 @@ public class SearchProfile extends AppCompatActivity {
             }
         };
         requestQueue.add(stringRequest);
+    }
+
+    @Override
+    public void onListBtnClick(int position) {
+        UserInfo userInfo = (UserInfo)adapter.getItem(position);
+        Intent intent = new Intent(getApplicationContext(), IndividualProfileResult.class);
+        intent.putExtra("UserInfo",userInfo);
+        startActivity(intent);
     }
 }

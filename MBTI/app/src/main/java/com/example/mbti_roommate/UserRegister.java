@@ -204,20 +204,10 @@ public class UserRegister extends AppCompatActivity {
                     pmam = 12;
                 String pstime = Integer.toString((pmam + Integer.parseInt(psTime_spinner.getSelectedItem().toString())));
                 String pshour = psHour_spinner.getSelectedItem().toString();
-                Log.e("id",id);
-                Log.e("password",password);
-                Log.e("pname",pname);
-                Log.e("pgender",pgender);
-                Log.e("pmbti",pmbti);
-                Log.e("pdormitory",pdormitory);
-                Log.e("univ",univ);
-                Log.e("email",email);
-                Log.e("psmoke",psmoke);
-                Log.e("page",page);
-                Log.e("pcontact",pcontact);
-                Log.e("pstime",pstime);
-                Log.e("pshour",pshour);
-                sendRequest(id, password, pname, pgender, pmbti, pdormitory, univ, email, psmoke, pcomment, page, pcontact, pstime, pshour);
+
+                String pmajor = "11110001";
+
+                sendRequest(id, password, pname, pgender, pmbti, pdormitory, univ, pmajor, email, psmoke, pcomment, page, pcontact, pstime, pshour);
 
             }
         });
@@ -233,7 +223,7 @@ public class UserRegister extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void sendRequest(final String id, final String password, final String pname, final String pgender, final String pmbti, final String pdormitory, final String univ, final String email,
+    public void sendRequest(final String id, final String password, final String pname, final String pgender, final String pmbti, final String pdormitory, final String univ,final String pmajor, final String email,
                             final String psmoke, final String pcomment, final String page, final String pcontact, final String pstime, final String pshour){
         RequestQueue requestQueue = Volley.newRequestQueue(UserRegister.this);  //이 에러가 도대체 뭘까요??????????????????
         String url = urlManager.registerURL;
@@ -273,6 +263,7 @@ public class UserRegister extends AppCompatActivity {
                 params.put("pmbti", pmbti);
                 params.put("pdormitory", pdormitory);
                 params.put("univ", univ);
+                params.put("pmajor",pmajor);
                 params.put("email", email);
                 params.put("psmoke", psmoke);
                 params.put("pcomment", pcomment);

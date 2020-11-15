@@ -19,6 +19,16 @@ app.use('/User/Register',require('./Routes/user_Register')(app,dbConnection));
 app.use('/User/NewMatch',require('./Routes/user_NewMatching')(app,dbConnection));
 app.use('/User/PrevMatch',require('./Routes/user_PrevMatching')(app,dbConnection));
 app.use('/User/SearchProfile',require('./Routes/user_SearchProfile')(app,dbConnection));
+app.use('/User/Request',require('./Routes/user_Request')(app,dbConnection));
+app.use('/User/Deny',require('./Routes/user_Deny')(app,dbConnection));
+app.use('/User/DenyList',require('./Routes/user_DenyList')(app,dbConnection));
+app.use('/User/DenyCancel',require('./Routes/user_DenyCancel')(app,dbConnection));
+app.use('/User/RequestList',require('./Routes/user_RequestList')(app,dbConnection));
+app.use('/User/ReqCancel',require('./Routes/user_ReqCancel')(app,dbConnection));
+app.use('/User/ResponseList',require('./Routes/user_ResponseList')(app,dbConnection));
+app.use('/User/ResponseAcpt',require('./Routes/user_ResponseAcpt')(app,dbConnection));
+app.use('/User/ResponseDeny',require('./Routes/user_ResponseDeny')(app,dbConnection));
+app.use('/User/MyRoommate',require('./Routes/user_MyRoommate')(app,dbConnection));
 
 
 app.listen(5000,function(req,res){
