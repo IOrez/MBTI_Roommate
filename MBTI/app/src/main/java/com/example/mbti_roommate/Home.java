@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -20,10 +21,21 @@ public class Home extends AppCompatActivity {
 
     ImageView infj, infp,enfj, enfp,isfj,istj,estj,esfj,istp,estp, isfp, esfp, entj, intp, intj, entp;
 
+
+    Button ProfileEditActButton;
+    Button DenyActButton;
+    Button RequestActButton;
+    Button ResponseActButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        ProfileEditActButton = findViewById(R.id.profile_edit_home_btn);
+        DenyActButton = findViewById(R.id.deny_home_btn);
+        RequestActButton = findViewById(R.id.request_home_btn);
+        ResponseActButton = findViewById(R.id.request_home_btn);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -158,6 +170,25 @@ public class Home extends AppCompatActivity {
         });
     }
 
+
+    public void goProfileEditActivity(View v){
+        Intent intent = new Intent(this, ProfileEditActivity.class);
+        startActivity(intent);
+    }
+
+    public void goDenyActivity(View v){
+        Intent intent = new Intent(this, DenyActivity.class);
+        startActivity(intent);
+    }
+
+    public void goRequestActivity(View v){
+        Intent intent = new Intent(this, RequestActivity.class);
+        startActivity(intent);
+    }
+    public void goResponseActivity(View v){
+        Intent intent = new Intent(this, ResponseActivity.class);
+        startActivity(intent);
+    }
 
     public void gotoUrl(String s){
         Uri uri = Uri.parse(s);

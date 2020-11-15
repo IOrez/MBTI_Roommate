@@ -41,6 +41,7 @@
         android:src="@drawable/mbti_before_selection" />
 
     <Button
+        android:id="@+id/profile_edit_bottom_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -52,6 +53,7 @@
     </Button>
 
     <Button
+        android:id="@+id/request_bottom_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="115dp"
@@ -63,6 +65,7 @@
     </Button>
 
     <Button
+        android:id="@+id/response_bottom_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="215dp"
@@ -74,6 +77,7 @@
     </Button>
 
     <Button
+        android:id="@+id/deny_bottom_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="315dp"

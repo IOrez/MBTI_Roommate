@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
     //로그인하고 최초화면 띄우기
     public void openMainPage(){
-        Intent intent = new Intent(this, BottomNavigationActivity.class);
+        Intent intent = new Intent(this, Home.class);
         startActivity(intent);
     }
 
