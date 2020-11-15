@@ -27,7 +27,7 @@ module.exports = function(app,db){
             "isMatched":parseInt(req.body.isMatched)
         };
         var profileNodes = [];
-        db.query(`SELECT * FROM User,SavedMatch WHERE SavedMatch.id='${userData.id}' AND User.id=SavedMatch.otherid`, function( error, results, fields) {
+        db.query(`SELECT * FROM User,SavedMatch WHERE SavedMatch.sid='${userData.id}' AND User.id=SavedMatch.otherid`, function( error, results, fields) {
             if (error)
                 console.log("error ocurred", error);
             else{
@@ -56,10 +56,10 @@ module.exports = function(app,db){
                 }
 
                 var items="{";
-                items+=`"success":"true","Users":[{`
+                items+=`"success":"true","Users":[`
                 for(var i =0; i<profileNodes.length;++i){
                     var obj =
-                        '"id":'+ `"${profileNodes[i].id}",`+
+                        '{"id":'+ `"${profileNodes[i].id}",`+
                         '"password":'+`"${profileNodes[i].password}",`+
                         '"pname":'+`"${profileNodes[i].pname}",`+
                         '"pgender":'+`${profileNodes[i].pgender},`+
@@ -79,9 +79,8 @@ module.exports = function(app,db){
                         "}"
                    
                     items += obj;
-                    if(i+1<profileNodes.length)items+=",{";
+                    if(i+1<profileNodes.length)items+=",";
                 }
-                if(profileNodes.length==0)items+="}";
                 items+="]}";
                 console.log(`items: ${items}`);
                 items= JSON.parse(items);

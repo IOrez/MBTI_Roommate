@@ -60,10 +60,10 @@ module.exports = class MatchResultList{
                     profileNodes.push(nodes[i].profileData);
 
                 var items="{";
-                items+=`"success":"true","Users":[{`
+                items+=`"success":"true","Users":[`
                 for(var i =0; i<profileNodes.length;++i){
                     var obj =
-                        '"id":'+ `"${profileNodes[i].id}",`+
+                        '{"id":'+ `"${profileNodes[i].id}",`+
                         '"password":'+`"${profileNodes[i].password}",`+
                         '"pname":'+`"${profileNodes[i].pname}",`+
                         '"pgender":'+`${profileNodes[i].pgender},`+
@@ -83,40 +83,45 @@ module.exports = class MatchResultList{
                         "}"
                    
                     items += obj;
-                    if(i+1<profileNodes.length)items+=",{";
+                    if(i+1<profileNodes.length)items+=",";
                 }
-                if(profileNodes.length==0)items+="}";
                 items+="]}";
                 console.log(`items: ${items}`);
                 items= JSON.parse(items);
 
-                db.query(`DELETE FROM SavedMatch WHERE id = '${userData.id}'`, function( error, results, fields) {
+                db.query(`DELETE FROM SavedMatch WHERE sid = '${userData.id}'`, function( error, results, fields) {
                     if (error)
                         console.log("error ocurred", error);
                     else{
                         let list = items["Users"];
-                        let values = [];
-                        for(var i =0;i<list.length;++i){
-                            var obj = []
-                            obj.push(userData.id);
-                            obj.push(list[i].id);
-                            values.push(obj);
-                        }
-                        db.query(`INSERT INTO SavedMatch (id,otherid) VALUES ?`,[values],function( error, results, fields) {
-                            if (error)
-                                console.log("error ocurred", error);
-                            else{
-                                db.query(`UPDATE User SET hasMatchBefore=1 WHERE id='${userData.id}'`,function( error, results, fields) {
-                                    if (error)
-                                        console.log("error ocurred", error);
-                                    else{
-                                        console.log(items);
-                                        res.send(items);
-                                    }
-                                });
+                        
+                        console.log(list.length)
+                        if(list.length>0){
+                            let values = [];
+                            for(var i =0;i<list.length;++i){
+                                var obj = []
+                                obj.push(userData.id);
+                                obj.push(list[i].id);
+                                values.push(obj);
                             }
+                            db.query(`INSERT INTO SavedMatch (sid,otherid) VALUES ?`,[values],function( error, results, fields) {
+                                if (error)
+                                    console.log("error ocurred", error);
+                                else{
+                                    db.query(`UPDATE User SET hasMatchBefore=1 WHERE id='${userData.id}'`,function( error, results, fields) {
+                                        if (error)
+                                            console.log("error ocurred", error);
+                                        else{
+                                            console.log(items);
+                                            res.send(items);
+                                        }
+                                    });
+                                }
 
-                        });
+                            });
+                        }
+                        else
+                            res.send(items);
                     }
                 });
             }

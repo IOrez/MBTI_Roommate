@@ -269,7 +269,7 @@ public class Home extends AppCompatActivity {
                                             userObj.getInt("pstime"),
                                             userObj.getInt("pshour"),
                                             userObj.getInt("hasMatchBefore"),
-                                            userObj.getInt("isMatched"),
+                                            0,
                                             null));
                                 }
                             }catch (JSONException e){

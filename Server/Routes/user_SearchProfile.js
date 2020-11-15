@@ -38,10 +38,10 @@ module.exports = function(app,db){
                 }
 
                 var items="{";
-                items+=`"success":"true","Users":[{`
+                items+=`"success":"true","Users":[`
                 for(var i =0; i<profileNodes.length;++i){
                     var obj =
-                        '"id":'+ `"${profileNodes[i].id}",`+
+                        '{"id":'+ `"${profileNodes[i].id}",`+
                         '"password":'+`"${profileNodes[i].password}",`+
                         '"pname":'+`"${profileNodes[i].pname}",`+
                         '"pgender":'+`${profileNodes[i].pgender},`+
@@ -61,9 +61,8 @@ module.exports = function(app,db){
                         "}"
                    
                     items += obj;
-                    if(i+1<profileNodes.length)items+=",{";
+                    if(i+1<profileNodes.length)items+=",";
                 }
-                if(profileNodes.length==0)items+="}";
                 items+="]}";
                 console.log(`items: ${items}`);
                 items= JSON.parse(items);
