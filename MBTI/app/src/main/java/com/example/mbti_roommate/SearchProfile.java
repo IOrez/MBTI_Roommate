@@ -92,6 +92,7 @@ public class SearchProfile extends AppCompatActivity {
                                         userObj.getInt("pmbti"),
                                         userObj.getInt("pdormitory"),
                                         userObj.getInt("univ"),
+                                        userObj.getInt("pmajor"),
                                         userObj.getString("email"),
                                         userObj.getInt("psmoke"),
                                         userObj.getString("pcomment"),

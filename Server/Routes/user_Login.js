@@ -22,6 +22,7 @@ module.exports = function(app,db){
                             "pmbti":results[0].pmbti,
                             "pdormitory":results[0].pdormitory,
                             "univ":results[0].univ,
+                            "pmajor":results[0].pmajor,
                             "email":results[0].email,
                             "psmoke":results[0].psmoke,
                             "pcomment":results[0].pcomment,

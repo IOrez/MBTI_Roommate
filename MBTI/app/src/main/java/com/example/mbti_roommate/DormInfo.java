@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class DormInfo {
     private static JSONObject univObject = new JSONObject();
     private static JSONObject dormObject = new JSONObject();
+    private static JSONObject majorObject = new JSONObject();
     private DormInfo(){};
     private static DormInfo instance;
     private static void initUnivObjs(){
@@ -25,9 +26,19 @@ public class DormInfo {
             e.printStackTrace();
         }
     }
+
+    private static void initMajorObjs(){
+        try{
+            dormObject.put("11110001","컴퓨터학부");
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
+
     private static void init(){
         initUnivObjs();
         initDormObjs();
+        initMajorObjs();
     }
 
     public static DormInfo getInstance(){
@@ -44,5 +55,9 @@ public class DormInfo {
 
     public static JSONObject getDormObjects() {
         return dormObject;
+    }
+
+    public static JSONObject getMajorObjects() {
+        return majorObject;
     }
 }

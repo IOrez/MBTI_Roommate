@@ -16,6 +16,7 @@ module.exports = function(app,db){
             "pmbti":parseInt(req.body.pmbti),
             "pdormitory":parseInt(req.body.pdormitory),
             "univ":parseInt(req.body.univ),
+            "pmajor":parseInt(req.body.pmajor),
             "email":req.body.email,
             "psmoke":parseInt(req.body.psmoke),
             "pcomment":req.body.pcomment,

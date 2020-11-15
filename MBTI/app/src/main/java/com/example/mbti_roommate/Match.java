@@ -72,6 +72,7 @@ public class Match extends AppCompatActivity {
                appuser.info.getPname(),
                String.valueOf(appuser.info.getPgender()),
                String.valueOf(appuser.info.getPmbti()),
+               String.valueOf(appuser.info.getPmajor()),
                String.valueOf(appuser.info.getPdormitory()),
                String.valueOf(appuser.info.getUniv()),
                appuser.info.getEmail(),
@@ -114,6 +115,7 @@ public class Match extends AppCompatActivity {
                 String.valueOf(appuser.info.getPmbti()),
                 String.valueOf(appuser.info.getPdormitory()),
                 String.valueOf(appuser.info.getUniv()),
+                String.valueOf(appuser.info.getPmajor()),
                 appuser.info.getEmail(),
                 String.valueOf(appuser.info.getPsmoke()),
                 appuser.info.getPcomment(),
@@ -129,7 +131,7 @@ public class Match extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void sendRequest(final int type,final String id, final String password, final String pname, final String pgender, final String pmbti, final String pdormitory, final String univ, final String email,
+    public void sendRequest(final int type,final String id, final String password, final String pname, final String pgender, final String pmbti,final String pmajor, final String pdormitory, final String univ, final String email,
                             final String psmoke, final String pcomment, final String page, final String pcontact, final String pstime, final String pshour){
         RequestQueue requestQueue = Volley.newRequestQueue(Match.this);
         String url;
@@ -153,7 +155,6 @@ public class Match extends AppCompatActivity {
                             try {
                                 for(int i =0;i<UserObjs.length();++i) {
                                     JSONObject userObj = UserObjs.getJSONObject(i);
-                                    userObj.getString("id");
                                     uInfos.add(new UserInfo(
                                             userObj.getString("id"),
                                             userObj.getString("password"),
@@ -162,6 +163,7 @@ public class Match extends AppCompatActivity {
                                             userObj.getInt("pmbti"),
                                             userObj.getInt("pdormitory"),
                                             userObj.getInt("univ"),
+                                            userObj.getInt("pmajor"),
                                             userObj.getString("email"),
                                             userObj.getInt("psmoke"),
                                             userObj.getString("pcomment"),
@@ -209,6 +211,7 @@ public class Match extends AppCompatActivity {
                 params.put("pmbti", pmbti);
                 params.put("pdormitory", pdormitory);
                 params.put("univ", univ);
+                params.put("pmajor",pmajor);
                 params.put("email", email);
                 params.put("psmoke", psmoke);
                 params.put("pcomment", pcomment);

@@ -28,6 +28,7 @@ module.exports = class MatchResultList{
                         results[i].pmbti,
                         results[i].pdormitory,
                         results[i].univ,
+                        results[i].pmajor,
                         results[i].email,
                         results[i].psmoke,
                         results[i].pcomment,
@@ -69,6 +70,7 @@ module.exports = class MatchResultList{
                         '"pmbti":'+`${profileNodes[i].pmbti},`+
                         '"pdormitory":'+`${profileNodes[i].pdormitory},`+
                         '"univ":'+`${profileNodes[i].univ},`+
+                        '"pmajor":'+`${profileNodes[i].pmajor},`+
                         '"email":'+`"${profileNodes[i].email}",`+
                         '"psmoke":'+`${profileNodes[i].psmoke},`+
                         '"pcomment":'+`"${profileNodes[i].pcomment}",`+
@@ -98,10 +100,9 @@ module.exports = class MatchResultList{
                             var obj = []
                             obj.push(userData.id);
                             obj.push(list[i].id);
-                            obj.push("waiting");
                             values.push(obj);
                         }
-                        db.query(`INSERT INTO SavedMatch (id,otherid,status) VALUES ?`,[values],function( error, results, fields) {
+                        db.query(`INSERT INTO SavedMatch (id,otherid) VALUES ?`,[values],function( error, results, fields) {
                             if (error)
                                 console.log("error ocurred", error);
                             else{

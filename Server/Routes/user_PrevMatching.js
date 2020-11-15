@@ -15,6 +15,7 @@ module.exports = function(app,db){
             "pmbti":parseInt(req.body.pmbti),
             "pdormitory":parseInt(req.body.pdormitory),
             "univ":parseInt(req.body.univ),
+            "pmajor":parseInt(req.body.pmajor),
             "email":req.body.email,
             "psmoke":parseInt(req.body.psmoke),
             "pcomment":req.body.pcomment,
@@ -40,6 +41,7 @@ module.exports = function(app,db){
                         results[i].pmbti,
                         results[i].pdormitory,
                         results[i].univ,
+                        results[i].pmajor,
                         results[i].email,
                         results[i].psmoke,
                         results[i].pcomment,
@@ -64,6 +66,7 @@ module.exports = function(app,db){
                         '"pmbti":'+`${profileNodes[i].pmbti},`+
                         '"pdormitory":'+`${profileNodes[i].pdormitory},`+
                         '"univ":'+`${profileNodes[i].univ},`+
+                        '"pmajor":'+`${profileNodes[i].pmajor},`+
                         '"email":'+`"${profileNodes[i].email}",`+
                         '"psmoke":'+`${profileNodes[i].psmoke},`+
                         '"pcomment":'+`"${profileNodes[i].pcomment}",`+

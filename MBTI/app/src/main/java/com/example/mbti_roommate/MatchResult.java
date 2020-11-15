@@ -87,6 +87,7 @@ public class MatchResult extends AppCompatActivity {
                         String.valueOf(appuser.info.getPmbti()),
                         String.valueOf(appuser.info.getPdormitory()),
                         String.valueOf(appuser.info.getUniv()),
+                        String.valueOf(appuser.info.getPmajor()),
                         appuser.info.getEmail(),
                         String.valueOf(appuser.info.getPsmoke()),
                         appuser.info.getPcomment(),
@@ -101,7 +102,7 @@ public class MatchResult extends AppCompatActivity {
 
     }
 
-    public void sendRequest(final int type,final String id, final String password, final String pname, final String pgender, final String pmbti, final String pdormitory, final String univ, final String email,
+    public void sendRequest(final int type,final String id, final String password, final String pname, final String pgender, final String pmbti,final String pdormitory, final String univ,final String pmajor,  final String email,
                             final String psmoke, final String pcomment, final String page, final String pcontact, final String pstime, final String pshour){
         RequestQueue requestQueue = Volley.newRequestQueue(MatchResult.this);
         String url;
@@ -134,6 +135,7 @@ public class MatchResult extends AppCompatActivity {
                                             userObj.getInt("pmbti"),
                                             userObj.getInt("pdormitory"),
                                             userObj.getInt("univ"),
+                                            userObj.getInt("pmajor"),
                                             userObj.getString("email"),
                                             userObj.getInt("psmoke"),
                                             userObj.getString("pcomment"),
@@ -181,6 +183,7 @@ public class MatchResult extends AppCompatActivity {
                 params.put("pmbti", pmbti);
                 params.put("pdormitory", pdormitory);
                 params.put("univ", univ);
+                params.put("pmajor",pmajor);
                 params.put("email", email);
                 params.put("psmoke", psmoke);
                 params.put("pcomment", pcomment);

@@ -15,6 +15,7 @@ public class UserInfo implements Serializable {
     private int pmbti;
     private int pdormitory;
     private int univ;
+    private int pmajor;
     private String email;
     private int psmoke;
     private String pcomment;
@@ -31,7 +32,7 @@ public class UserInfo implements Serializable {
     public UserInfo(){}
 
     public UserInfo(
-            String id, String password,String pname,int pgender,int pmbti,int pdormitory,int univ,String email,
+            String id, String password,String pname,int pgender,int pmbti,int pdormitory,int univ,int pmajor,String email,
             int psmoke,String pcomment,int page,String pcontact,int pstime,int pshour,int hasMatchBefore,int isMatched,
             UserInfo matched_user){
 
@@ -42,6 +43,7 @@ public class UserInfo implements Serializable {
         this.pmbti = pmbti;
         this.pdormitory = pdormitory;
         this.univ = univ;
+        this.pmajor = pmajor;
         this.email = email;
         this.psmoke = psmoke;
         this.pcomment = pcomment;
@@ -70,6 +72,7 @@ public class UserInfo implements Serializable {
         this.pmbti = obj.pmbti;
         this.pdormitory = obj.pdormitory;
         this.univ = obj.univ;
+        this.pmajor = obj.pmajor;
         this.email = obj.email;
         this.psmoke = obj.psmoke;
         this.pcomment = obj.pcomment;
@@ -220,5 +223,21 @@ public class UserInfo implements Serializable {
 
     public void setMbit_image(int mbti_image) {
         this.mbti_image = mbti_image;
+    }
+
+    public int getPmajor() {
+        return pmajor;
+    }
+
+    public void setPmajor(int pmajor) {
+        this.pmajor = pmajor;
+    }
+
+    public UserInfo getMatched_user() {
+        return matched_user;
+    }
+
+    public void setMatched_user(UserInfo matched_user) {
+        this.matched_user = matched_user;
     }
 }

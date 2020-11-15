@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                             appuser.info.setPmbti(jsonObj.getInt("pmbti"));
                             appuser.info.setPdormitory(jsonObj.getInt("pdormitory"));
                             appuser.info.setUniv(jsonObj.getInt("univ"));
+                            appuser.info.setPmajor(jsonObj.getInt("pmajor"));
                             appuser.info.setEmail(jsonObj.getString("email"));
                             appuser.info.setPsmoke(jsonObj.getInt("psmoke"));
                             appuser.info.setPcomment(jsonObj.getString("pcomment"));
