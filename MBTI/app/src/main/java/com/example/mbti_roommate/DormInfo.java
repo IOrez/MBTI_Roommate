@@ -29,7 +29,7 @@ public class DormInfo {
 
     private static void initMajorObjs(){
         try{
-            dormObject.put("11110001","컴퓨터학부");
+            majorObject.put("11110001","컴퓨터학부");
         }catch (JSONException e){
             e.printStackTrace();
         }
