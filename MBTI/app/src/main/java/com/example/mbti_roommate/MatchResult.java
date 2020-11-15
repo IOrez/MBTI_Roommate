@@ -40,7 +40,7 @@ import java.util.Map;
 
 //매칭된 3명을 나타내는 클래스
 
-public class MatchResult extends AppCompatActivity {
+public class MatchResult extends AppCompatActivity implements ListViewAdapter.ListBtnClickListener{
 
     Button rematchButton;           //재매칭하기 버튼
 
@@ -54,7 +54,7 @@ public class MatchResult extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundleObject = getIntent().getExtras();
         ArrayList<UserInfo> uInfos = (ArrayList<UserInfo>)bundleObject.getSerializable("UserInfos");
-        adapter = new ListViewAdapter();
+        adapter = new ListViewAdapter(this,R.layout.profile_default_info,uInfos,this);
         listView = findViewById(R.id.profilelistView);
         rematchButton = findViewById(R.id.rematch_btn);
         listView.setAdapter(adapter);
@@ -203,5 +203,11 @@ public class MatchResult extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-
+    @Override
+    public void onListBtnClick(int position) {
+        UserInfo userInfo = (UserInfo)adapter.getItem(position);
+        Intent intent = new Intent(getApplicationContext(), IndividualProfileResult.class);
+        intent.putExtra("UserInfo",userInfo);
+        startActivity(intent);
+    }
 }
