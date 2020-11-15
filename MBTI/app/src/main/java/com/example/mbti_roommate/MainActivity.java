@@ -94,6 +94,34 @@ public class MainActivity extends AppCompatActivity {
                             appuser.info.setPshour(jsonObj.getInt("pshour"));
                             appuser.info.setHasMatchBefore(jsonObj.getInt("hasMatchBefore"));
                             appuser.info.setIsMatched(jsonObj.getInt("isMatched"));
+                            if(appuser.info.getIsMatched()==1) {
+                                JSONObject roomObj = jsonObj.getJSONObject("roommate");
+                                appuser.info.setMatched_user(
+                                        new UserInfo(
+                                                roomObj.getString("id"),
+                                                roomObj.getString("password"),
+                                                roomObj.getString("pname"),
+                                                roomObj.getInt("pgender"),
+                                                roomObj.getInt("pmbti"),
+                                                roomObj.getInt("pdormitory"),
+                                                roomObj.getInt("univ"),
+                                                roomObj.getInt("pmajor"),
+                                                roomObj.getString("email"),
+                                                roomObj.getInt("psmoke"),
+                                                roomObj.getString("pcomment"),
+                                                roomObj.getInt("page"),
+                                                roomObj.getString("pcontact"),
+                                                roomObj.getInt("pstime"),
+                                                roomObj.getInt("pshour"),
+                                                roomObj.getInt("hasMatchBefore"),
+                                                0,
+                                                null
+                                        )
+                                );
+                                Log.e("here",roomObj.getString("id"));
+                            }
+                            else
+                                appuser.info.setMatched_user(null);
                             openMainPage();
                         }
                         else{

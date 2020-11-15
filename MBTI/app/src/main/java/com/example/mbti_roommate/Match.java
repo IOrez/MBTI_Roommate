@@ -65,7 +65,14 @@ public class Match extends AppCompatActivity {
 
     }
     public void matchButtonClick(View v){               //매칭하기 버튼 클릭 시 호출 함수
-          User appuser = User.getInstance();
+
+            User appuser = User.getInstance();
+            if(appuser.info.getIsMatched()==1) {
+                Toast info = Toast.makeText(getApplicationContext(),"이미 정해진 룸메이트가 존재합니다.!",Toast.LENGTH_LONG);
+                info.show();
+                return;
+            }
+
           sendRequest(0,
                appuser.info.getId(),
                appuser.info.getPassword(),
@@ -84,29 +91,15 @@ public class Match extends AppCompatActivity {
                   String.valueOf(appuser.info.getPshour())
           );
 
-
-
-
-//        Intent intent = new Intent(getApplicationContext(), MatchResult.class);
-//        ArrayList<UserInfo> uInfos = new ArrayList<UserInfo>();
-//        uInfos.add(new UserInfo("guest2","password","이종제",
-//                1,12,11110001,1111,
-//                "kkk1111@knu.ac.kr",0,"Hello!",25,
-//                "전화번호",12,6,0,0,null));
-//        uInfos.add(new UserInfo("guest3","password","김수현",1,5,11110001,1111,
-//                "ijk2020@knu.ac.kr",1,"hi!",25,
-//                "삐삐번호",10,7,0,0,null));
-//
-//        Bundle bundle = new Bundle();
-//        bundle.putSerializable("UserInfos",uInfos);
-//        intent.putExtras(bundle);
-//        startActivity(intent);
     }
 
     public void openSavedMatchResults(View v){          //이전 매칭 결과 불러오기 클릭 시 호출 함수
-
-            //이것도 따로 구현 필요
         User appuser = User.getInstance();
+        if(appuser.info.getIsMatched()==1) {
+            Toast info = Toast.makeText(getApplicationContext(),"이미 정해진 룸메이트가 존재합니다.!",Toast.LENGTH_LONG);
+            info.show();
+            return;
+        }
         sendRequest(1,
                 appuser.info.getId(),
                 appuser.info.getPassword(),
@@ -127,6 +120,12 @@ public class Match extends AppCompatActivity {
     }
 
     public void openSearchProfile(View v){
+        User appuser = User.getInstance();
+        if(appuser.info.getIsMatched()==1) {
+            Toast info = Toast.makeText(getApplicationContext(),"이미 정해진 룸메이트가 존재합니다.!",Toast.LENGTH_LONG);
+            info.show();
+            return;
+        }
         Intent intent = new Intent(getApplicationContext(), SearchProfile.class);
         startActivity(intent);
     }

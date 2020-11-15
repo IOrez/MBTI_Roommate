@@ -1,14 +1,11 @@
 package com.example.mbti_roommate;
+
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,7 +19,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -30,15 +26,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ListViewAdapter extends ArrayAdapter<UserInfo> implements View.OnClickListener{
+public class RequestListViewAdapter extends ArrayAdapter<UserInfo> implements View.OnClickListener{
     private ArrayList<UserInfo> listViewItemList= new ArrayList<UserInfo>();
     public interface ListBtnClickListener {
         void onListBtnClick(int position) ;
     }
     int resourceId;
     Context context;
-    private ListBtnClickListener listBtnClickListener ;
-    public ListViewAdapter(Context context, int resource,ArrayList<UserInfo> list,ListBtnClickListener clickListener){
+    private RequestListViewAdapter.ListBtnClickListener listBtnClickListener ;
+    public RequestListViewAdapter(Context context, int resource, ArrayList<UserInfo> list, RequestListViewAdapter.ListBtnClickListener clickListener){
         super(context,resource,list);
         this.context = context;
         this.resourceId = resource;
@@ -67,7 +63,7 @@ public class ListViewAdapter extends ArrayAdapter<UserInfo> implements View.OnCl
         final Context context = parent.getContext();
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        convertView = inflater.inflate(R.layout.profile_default_info, parent, false);
+        convertView = inflater.inflate(R.layout.profile_request, parent, false);
 
         ImageView image = convertView.findViewById(R.id.image);
         TextView user_name = convertView.findViewById(R.id.user_name);
@@ -83,25 +79,18 @@ public class ListViewAdapter extends ArrayAdapter<UserInfo> implements View.OnCl
         else
             isSmoke.setText("NO");
 
-        Button reqButton = convertView.findViewById(R.id.profile_request_btn);
+        Button cancelButton = convertView.findViewById(R.id.request_cancel_btn);
         final int Pos = position;
-        reqButton.setOnClickListener(new Button.OnClickListener() {
+        cancelButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final User appuser = User.getInstance();
-                sendRequest(0,appuser.info.getId(),listViewItem.getId(),Pos);
+                sendRequest(appuser.info.getId(),listViewItem.getId(),Pos);
             }
         });
 
-        Button denyButton = convertView.findViewById(R.id.profile_deny_btn);
-        denyButton.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View v) {
-                final User appuser = User.getInstance();
-                sendRequest(1,appuser.info.getId(),listViewItem.getId(),Pos);
-            }
-        });
 
-        Button showButton = (Button) convertView.findViewById(R.id.profile_show_btn);
+        Button showButton = (Button) convertView.findViewById(R.id.profile_request_show_btn);
         showButton.setTag(position);
         showButton.setOnClickListener(this);
 
@@ -115,18 +104,15 @@ public class ListViewAdapter extends ArrayAdapter<UserInfo> implements View.OnCl
     }
 
     public void onClick(View v) {
-         if (this.listBtnClickListener != null) {
+        if (this.listBtnClickListener != null) {
             this.listBtnClickListener.onListBtnClick((int)v.getTag()) ;
         }
     }
 
-    public void sendRequest(final int type, final String id, final String otherid, final int position){
+    public void sendRequest(final String id, final String otherid, final int position){
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         String url;
-        if(type ==0)
-            url = urlManager.requestURL;
-        else
-            url = urlManager.denyURL;
+        url = urlManager.reqCancelURL;
         Log.e("url",url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -137,11 +123,7 @@ public class ListViewAdapter extends ArrayAdapter<UserInfo> implements View.OnCl
                         boolean isSuccessed = jsonObj.getBoolean("success");
                         Log.e("Success",String.valueOf(isSuccessed));
                         if(isSuccessed) {
-                            Toast info;
-                            if(type==0)
-                                 info = Toast.makeText(context,"룸메이트 요청을 하였습니다.",Toast.LENGTH_LONG);
-                            else
-                                info = Toast.makeText(context,"차단하였습니다.",Toast.LENGTH_LONG);
+                            Toast info = Toast.makeText(context,"요청을 취소하였습니다.",Toast.LENGTH_LONG);
                             info.show();
 
                         }
@@ -176,5 +158,4 @@ public class ListViewAdapter extends ArrayAdapter<UserInfo> implements View.OnCl
         };
         requestQueue.add(stringRequest);
     }
-
 }

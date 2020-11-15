@@ -240,4 +240,5 @@ public class UserInfo implements Serializable {
     public void setMatched_user(UserInfo matched_user) {
         this.matched_user = matched_user;
     }
+
 }
