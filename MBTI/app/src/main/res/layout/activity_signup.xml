@@ -54,7 +54,8 @@
                 android:textSize="16sp"
                 app:fontFamily="@font/noto_sans"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:privateImeOptions="defaultInputmode=korean"/>
 
             <TextView
                 android:id="@+id/id_textView"
@@ -582,7 +583,8 @@
                 app:fontFamily="@font/noto_sans"
 
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pComment_textView" />
+                app:layout_constraintTop_toBottomOf="@+id/pComment_textView"
+                android:privateImeOptions="defaultInputmode=korean"/>
 
             <TextView
                 android:id="@+id/pComment_textView"

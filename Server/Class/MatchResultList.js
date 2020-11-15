@@ -83,6 +83,7 @@ module.exports = class MatchResultList{
                     items += obj;
                     if(i+1<profileNodes.length)items+=",{";
                 }
+                if(profileNodes.length==0)items+="}";
                 items+="]}";
                 console.log(`items: ${items}`);
                 items= JSON.parse(items);

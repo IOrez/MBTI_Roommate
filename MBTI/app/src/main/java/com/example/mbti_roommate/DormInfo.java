@@ -33,7 +33,7 @@ public class DormInfo {
     public static DormInfo getInstance(){
         if(instance==null){
             instance = new DormInfo();
-            instance.init();
+            init();
         }
         return instance;
     }

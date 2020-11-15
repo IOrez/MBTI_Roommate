@@ -40,16 +40,38 @@
         android:layout_marginTop="144dp"
         android:src="@drawable/mbti_before_selection" />
 
-    <TextView
-        android:id="@+id/user_mbti_textview"
-        android:layout_width="300dp"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="247dp"
-        android:text="아직 프로필을 작성하지 않으셨어요!"
-        android:textAlignment="center"
-        android:textStyle="bold" />
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="400dp"
+        android:text="프로필 수정"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:background="@drawable/border">
+    </Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="400dp"
+        android:text="요청보관함"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:background="@drawable/border">
+    </Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="400dp"
+        android:text="차단프로필"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:background="@drawable/border">
+    </Button>
 
     <ScrollView
         android:layout_width="wrap_content"

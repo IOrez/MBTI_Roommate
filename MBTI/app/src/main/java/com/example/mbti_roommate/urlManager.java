@@ -7,4 +7,5 @@ public class urlManager {
     static String registerURL = new String(targetURL+"/User/Register");
     static String newMatchURL = new String(targetURL+"/User/NewMatch");
     static String prevMatchURL = new String(targetURL+"/User/PrevMatch");
+    static String SearchProfURL = new String(targetURL+"/User/SearchProfile");
 }

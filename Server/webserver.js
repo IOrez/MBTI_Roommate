@@ -18,6 +18,7 @@ app.use('/User/Login',require('./Routes/user_Login')(app,dbConnection));
 app.use('/User/Register',require('./Routes/user_Register')(app,dbConnection));
 app.use('/User/NewMatch',require('./Routes/user_NewMatching')(app,dbConnection));
 app.use('/User/PrevMatch',require('./Routes/user_PrevMatching')(app,dbConnection));
+app.use('/User/SearchProfile',require('./Routes/user_SearchProfile')(app,dbConnection));
 
 
 app.listen(5000,function(req,res){

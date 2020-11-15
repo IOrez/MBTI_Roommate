@@ -40,6 +40,7 @@ public class UserInfo implements Serializable {
         this.pname = pname;
         this.pgender = pgender;
         this.pmbti = pmbti;
+        this.pdormitory = pdormitory;
         this.univ = univ;
         this.email = email;
         this.psmoke = psmoke;

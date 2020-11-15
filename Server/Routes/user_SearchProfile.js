@@ -7,26 +7,9 @@ module.exports = function(app,db){
     router.post('/',function(req,res,next){
         console.log(req.body);
         console.log("------------------------------------------");
-        var userData = {
-            "id": req.body.id,
-            "password":req.body.password,
-            "pname":req.body.pname,
-            "pgender":parseInt(req.body.pgender),
-            "pmbti":parseInt(req.body.pmbti),
-            "pdormitory":parseInt(req.body.pdormitory),
-            "univ":parseInt(req.body.univ),
-            "email":req.body.email,
-            "psmoke":parseInt(req.body.psmoke),
-            "pcomment":req.body.pcomment,
-            "page":parseInt(req.body.page),
-            "pcontact":req.body.pcontact,
-            "pstime":parseInt(req.body.pstime),
-            "pshour":parseInt(req.body.pshour),
-            "hasMatchBefore":parseInt(req.body.hasMatchBefore),
-            "isMatched":parseInt(req.body.isMatched)
-        };
+    
         var profileNodes = [];
-        db.query(`SELECT * FROM User,SavedMatch WHERE SavedMatch.id='${userData.id}' AND User.id=SavedMatch.otherid`, function( error, results, fields) {
+        db.query(`SELECT * FROM User WHERE pdormitory='${req.body.pdormitory}' AND pname='${req.body.pname}'`, function( error, results, fields) {
             if (error)
                 console.log("error ocurred", error);
             else{

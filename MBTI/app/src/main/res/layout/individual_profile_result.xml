@@ -73,7 +73,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="114dp"
         android:layout_marginTop="318dp"
-        android:text="첨성관" />
+        android:text="" />
 
     <TextView
         android:id="@+id/user_dormitory"
@@ -193,7 +193,8 @@
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:text="안녕하세요! 저는 대체로 집을 깔끔하게 쓰는 유형이며, 같이 살게 되면 일주일에 최소 한 번은 같이 청소를 하면 좋겠습니다." />
+        android:text="안녕하세요! 저는 대체로 집을 깔끔하게 쓰는 유형이며, 같이 살게 되면 일주일에 최소 한 번은 같이 청소를 하면 좋겠습니다."
+        android:enabled="false"/>
 
     <TextView
         android:id="@+id/sleep_time"

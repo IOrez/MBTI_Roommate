@@ -34,7 +34,7 @@ public class Match extends AppCompatActivity {
 
     Button goSeeMatchResultButton;
     Button goWriteNewProfileButton;
-
+    Button goSearchProfileButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,6 +122,11 @@ public class Match extends AppCompatActivity {
                 String.valueOf(appuser.info.getPstime()),
                 String.valueOf(appuser.info.getPshour())
         );
+    }
+
+    public void openSearchProfile(View v){
+        Intent intent = new Intent(getApplicationContext(), SearchProfile.class);
+        startActivity(intent);
     }
 
     public void sendRequest(final int type,final String id, final String password, final String pname, final String pgender, final String pmbti, final String pdormitory, final String univ, final String email,
