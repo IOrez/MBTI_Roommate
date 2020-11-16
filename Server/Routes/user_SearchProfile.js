@@ -9,7 +9,7 @@ module.exports = function(app,db){
         console.log("------------------------------------------");
     
         var profileNodes = [];
-        db.query(`SELECT * FROM User WHERE pdormitory='${req.body.pdormitory}' AND pname='${req.body.pname}'`, function( error, results, fields) {
+        db.query(`SELECT * FROM User WHERE pdormitory='${req.body.pdormitory}' AND pname='${req.body.pname}'AND NOT id='${req.body.id}'`, function( error, results, fields) {
             if (error)
                 console.log("error ocurred", error);
             else{

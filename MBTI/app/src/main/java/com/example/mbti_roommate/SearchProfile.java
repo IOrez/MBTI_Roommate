@@ -55,10 +55,10 @@ public class SearchProfile extends AppCompatActivity implements ListViewAdapter.
         String pdormitory = String.valueOf(appuser.info.getPdormitory());
         String pname = userName.getText().toString();
         Log.e("name",pname);
-        sendRequest(pdormitory,pname);
+        sendRequest(pdormitory,pname,appuser.info.getId());
     }
 
-    public void sendRequest(final String pdormitory, final String pname){
+    public void sendRequest(final String pdormitory, final String pname,final String id){
         RequestQueue requestQueue = Volley.newRequestQueue(SearchProfile.this);
         String url = urlManager.SearchProfURL;
         ArrayList<UserInfo> ulist = new ArrayList<UserInfo>();
@@ -121,6 +121,8 @@ public class SearchProfile extends AppCompatActivity implements ListViewAdapter.
             @Override
             protected Map<String,String> getParams() {
                 Map<String,String> params = new HashMap<String,String>();
+
+                params.put("id",id);
                 params.put("pdormitory",pdormitory);
                 params.put("pname",pname);
                 return params;
