@@ -12,7 +12,9 @@ module.exports = class Matching{
         var nodes = [];
         var profileNodes = [];
         var maxiumSize = 3;
-        db.query(`SELECT * FROM User WHERE pdormitory = ${userData.pdormitory} and NOT id='${userData.id}' and isMatched=0 and id NOT IN(SELECT otherid FROM DenyMatch WHERE did ='${userData.id}')`, function( error, results, fields) {
+        db.query(`SELECT * FROM User WHERE pdormitory = ${userData.pdormitory} and NOT id='${userData.id}' and isMatched=0 and pgender='${userData.pgender}' 
+        and id NOT IN(SELECT otherid FROM Request WHERE rid ='${userData.id}')
+        and id NOT IN(SELECT otherid FROM DenyMatch WHERE did ='${userData.id}')`, function( error, results, fields) {
             if (error)
                 console.log("error ocurred", error);
             else{

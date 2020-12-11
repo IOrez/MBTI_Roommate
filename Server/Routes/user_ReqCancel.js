@@ -1,5 +1,3 @@
-const { userManager } = require('../Global/global');
-
 module.exports = function(app,db){
     var express = require('express');
     var router = express.Router();
