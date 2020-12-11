@@ -1,5 +1,3 @@
-
-const ScoreTable = require("./ScoreTable");
 const ProfileData = require('./ProfileData');
 const UserNode = require('./UserNode');
 module.exports = class Matching{
@@ -8,7 +6,7 @@ module.exports = class Matching{
     }
 
     makeList(userData,req,res,db){
-        var table = new ScoreTable();
+        var table = require('../Global/global').scoreTable;
         var nodes = [];
         var profileNodes = [];
         var maxiumSize = 3;
