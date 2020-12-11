@@ -53,7 +53,7 @@ module.exports =class UserManager{
     }
     reqSerProfile(req,res,db){
         var profileNodes = [];
-        db.query(`SELECT * FROM User WHERE pdormitory='${req.body.pdormitory}' AND pname='${req.body.pname}'AND NOT id='${req.body.id}' 
+        db.query(`SELECT * FROM User WHERE pdormitory='${req.body.pdormitory}' AND pname='${req.body.pname}'AND NOT id='${req.body.id}' AND isMatched=0 AND pgender='${userData.pgender}' 
         AND id NOT IN(SELECT otherid FROM Request WHERE rid ='${req.body.id}')
         AND id NOT IN(SELECT otherid FROM DenyMatch WHERE did ='${req.body.id}')`, function( error, results, fields) {
             if (error)
