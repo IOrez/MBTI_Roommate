@@ -51,7 +51,7 @@ public class Home extends AppCompatActivity {
         ProfileEditActButton = findViewById(R.id.profile_edit_home_btn);
         DenyActButton = findViewById(R.id.deny_home_btn);
         RequestActButton = findViewById(R.id.request_home_btn);
-        ResponseActButton = findViewById(R.id.request_home_btn);
+        ResponseActButton = findViewById(R.id.response_home_btn);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
