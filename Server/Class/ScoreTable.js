@@ -1,4 +1,4 @@
-module.exports = class MatchScore{
+module.exports = class ScoreTable{
     
     constructor(){
         

@@ -1,13 +1,11 @@
-const MatchResultList = require('../Class/MatchResultList');
+const Matching = require('../Class/Matching');
 
 module.exports = function(app,db){
     var express = require('express');
     var router = express.Router();
 
     router.post('/',function(req,res,next){
-        Matching = new MatchResultList(app);
-        console.log(req.body);
-        console.log("------------------------------------------");
+        matching = require('../Global/global').matching;
         var UserData = {
             "id": req.body.id,
             "password":req.body.password,
@@ -27,7 +25,7 @@ module.exports = function(app,db){
             "hasMatchBefore":parseInt(req.body.hasMatchBefore),
             "isMatched":parseInt(req.body.isMatched)
         };
-        Matching.makeList(UserData,req,res);
+        matching.makeList(UserData,req,res,db);
     });
     return router;
 };
