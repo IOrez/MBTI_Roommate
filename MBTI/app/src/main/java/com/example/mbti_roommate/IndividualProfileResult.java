@@ -81,7 +81,7 @@ public class IndividualProfileResult extends AppCompatActivity {
             matchResultGenderResult.setText("여자");
 
         try{
-            matchResultDormitory.setText(dinfo.getMajorObjects().getString(String.valueOf(userInfo.getPmajor())));
+            matchResultUserMajor.setText(dinfo.getMajorObjects().getString(String.valueOf(userInfo.getPmajor())));
 
             matchResultDormitory.setText(dinfo.getDormObjects().getString(String.valueOf(userInfo.getPdormitory())));
         }catch (JSONException e){

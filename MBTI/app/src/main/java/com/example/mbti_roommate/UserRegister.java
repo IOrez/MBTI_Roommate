@@ -39,7 +39,7 @@ public class UserRegister extends AppCompatActivity {
     private EditText name_EditText;
     private Spinner age_spinner;
     private Spinner univ_spinner;
-    //private Spinner pmajor_spinner
+    private Spinner pmajor_spinner;
     private Spinner dorm_spinner;
     private EditText email_EditText;
     private Spinner email_spinner;
@@ -65,6 +65,7 @@ public class UserRegister extends AppCompatActivity {
         psTime_spinner = findViewById(R.id.psTime_spinner);
         psHour_spinner = findViewById(R.id.psHour_spinner);
         signup_button = findViewById(R.id.signup_button);
+        pmajor_spinner = findViewById(R.id.major_spinner);
 
         ArrayAdapter mbtiAdapter = ArrayAdapter.createFromResource
                 (this, R.array.mbti_array, android.R.layout.simple_spinner_dropdown_item);
@@ -82,6 +83,7 @@ public class UserRegister extends AppCompatActivity {
                 (this, R.array.pstime_array, android.R.layout.simple_spinner_dropdown_item);
         ArrayAdapter psHourAdapter = ArrayAdapter.createFromResource
                 (this, R.array.pshour_array, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter pmajorAdapter = ArrayAdapter.createFromResource(this, R.array.pmajor_array, android.R.layout.simple_spinner_dropdown_item);
 
         mbtiAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mbti_spinner.setAdapter(mbtiAdapter);
@@ -106,6 +108,12 @@ public class UserRegister extends AppCompatActivity {
 
         psHourAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         psHour_spinner.setAdapter(psHourAdapter);
+
+        pmajorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        pmajor_spinner.setAdapter(pmajorAdapter);
+
+
+
         id_EditText = (EditText) findViewById(R.id.userID_editText);
         pw_EditText = (EditText) findViewById(R.id.userPW_editText);
         pwCheck_EditText = (EditText) findViewById(R.id.userPWCheck_editText);
@@ -193,31 +201,18 @@ public class UserRegister extends AppCompatActivity {
                 String univ = Integer.toString(univInt);
 
                 //학과
-                String pmajor = "11110001";
-                //int pmajorInt = "11110001";   //초기화
-                //if (pmajor_spinner.getSelectedItem().toString()).equals("컴퓨터학부"))
-                //  pmajorInt = 11110001;
-                //else if (pmajor_spinner.getSelectedItem().toString()).equals("전자공학부"))
-                //  pmajorInt = 11110002;
-                //else if (pmajor_spinner.getSelectedItem().toString()).equals("기계공학부"))
-                //  pmajorInt = 11110002;
-                //else if (pmajor_spinner.getSelectedItem().toString()).equals("전기공학부"))
-                //  pmajorInt = 11110002;
-                //else if (pmajor_spinner.getSelectedItem().toString()).equals("건축학부"))
-                //  pmajorInt = 11110002;
-                //else if (pmajor_spinner.getSelectedItem().toString()).equals("국어국문학과"))
-                //  pmajorInt = 11110002;
-                //else if (pmajor_spinner.getSelectedItem().toString()).equals("경영학부"))
-                //  pmajorInt = 11110002;
-                //else if (pmajor_spinner.getSelectedItem().toString()).equals("전자공학부"))
-                //  pmajorInt = 11110002;
-                //else if (pmajor_spinner.getSelectedItem().toString()).equals("전자공학부"))
-                //  pmajorInt = 11110002;
-                //else if (pmajor_spinner.getSelectedItem().toString()).equals("전자공학부"))
-                //  pmajorInt = 11110002;
-                //else if (pmajor_spinner.getSelectedItem().toString()).equals("전자공학부"))
-                //  pmajorInt = 11110002;
-                //String pmajor = Integer.toString(pmajorInt);
+                int pmajorInt = 11110001;   //초기화
+                if (pmajor_spinner.getSelectedItem().equals("컴퓨터학부"))
+                    pmajorInt = 11110001;
+                else if (pmajor_spinner.getSelectedItem().equals("전자공학부"))
+                    pmajorInt = 11110005;
+                else if (pmajor_spinner.getSelectedItem().equals("경영학부"))
+                    pmajorInt = 11110002;
+                else if (pmajor_spinner.getSelectedItem().equals("영어영문학"))
+                    pmajorInt = 11110003;
+                else if (pmajor_spinner.getSelectedItem().equals("수학과"))
+                    pmajorInt = 11110004;
+
 
                 //기숙사
                 int pdormitoryInt = 11110001;   //초기화
@@ -252,7 +247,7 @@ public class UserRegister extends AppCompatActivity {
                 String emailID = email_EditText.getText().toString();
                 String emailAddress = email_spinner.getSelectedItem().toString();
                 String email = emailID + "@" + emailAddress;
-
+                String pmajor = String.valueOf(pmajorInt);
                 //연락처
                 String pcontact = email;
                 //String pcontact = pcontact_EditText.getText().toString;

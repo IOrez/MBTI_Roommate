@@ -199,6 +199,20 @@
                 app:layout_constraintTop_toBottomOf="@id/gender_textView" />
 
             <TextView
+                android:id="@+id/major_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="36dp"
+                android:text="전공"
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textSize="16sp"
+                app:fontFamily="@font/noto_sans"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/school_textView" />
+
+            <TextView
                 android:id="@+id/age_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -549,7 +563,21 @@
                 android:textSize="16sp"
                 app:fontFamily="@font/noto_sans"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/school_textView" />
+                app:layout_constraintTop_toBottomOf="@+id/major_textView" />
+
+
+            <Spinner
+                android:id="@+id/major_spinner"
+                android:layout_width="300dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="104dp"
+                android:layout_marginLeft="104dp"
+                android:layout_marginTop="23dp"
+                android:background="@drawable/signup_spinner_style"
+                android:hint="학교를 선택해 주세요."
+                app:fontFamily="@font/noto_sans"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/univ_spinner" />
 
 
             <Spinner
@@ -563,28 +591,26 @@
                 android:hint="학교를 선택해 주세요."
                 app:fontFamily="@font/noto_sans"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/univ_spinner" />
+                app:layout_constraintTop_toBottomOf="@+id/major_spinner" />
 
             <EditText
                 android:id="@+id/pcomment"
                 android:layout_width="370dp"
                 android:layout_height="300dp"
                 android:layout_marginStart="36dp"
-                android:layout_marginLeft="36dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="30dp"
                 android:background="@drawable/signup_edittext_style"
                 android:ems="10"
                 android:gravity="top"
                 android:hint="룸메들에게 자신을 어필해보세요!"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
+                android:privateImeOptions="defaultInputmode=korean"
                 android:textSize="16sp"
-                app:fontFamily="@font/noto_sans"
 
+                app:fontFamily="@font/noto_sans"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pComment_textView"
-                android:privateImeOptions="defaultInputmode=korean"/>
+                app:layout_constraintTop_toBottomOf="@+id/pComment_textView" />
 
             <TextView
                 android:id="@+id/pComment_textView"
@@ -601,6 +627,8 @@
                 app:fontFamily="@font/noto_sans"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/sleepPattern_textView" />
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

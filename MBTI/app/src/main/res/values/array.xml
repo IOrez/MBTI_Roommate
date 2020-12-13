@@ -85,6 +85,13 @@
         <item>10</item>
         <item>11</item>
     </string-array>
+    <string-array name="pmajor_array">
+        <item>컴퓨터학부</item>
+        <item>경영학부</item>
+        <item>영어영문학과</item>
+        <item>수학과</item>
+        <item>전자공학과</item>
+    </string-array>
     <string-array name="pshour_array">
         <item>1</item>
         <item>2</item>
