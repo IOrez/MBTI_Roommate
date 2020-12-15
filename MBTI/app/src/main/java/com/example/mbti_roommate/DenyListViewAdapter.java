@@ -33,8 +33,8 @@ public class DenyListViewAdapter extends ArrayAdapter<UserInfo> implements View.
     }
     int resourceId;
     Context context;
-    private DenyListViewAdapter.ListBtnClickListener listBtnClickListener ;
-    public DenyListViewAdapter(Context context, int resource, ArrayList<UserInfo> list, DenyListViewAdapter.ListBtnClickListener clickListener){
+    private ListBtnClickListener listBtnClickListener ;
+    public DenyListViewAdapter(Context context, int resource, ArrayList<UserInfo> list, ListBtnClickListener clickListener){
         super(context,resource,list);
         this.context = context;
         this.resourceId = resource;

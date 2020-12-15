@@ -33,8 +33,8 @@ public class RequestListViewAdapter extends ArrayAdapter<UserInfo> implements Vi
     }
     int resourceId;
     Context context;
-    private RequestListViewAdapter.ListBtnClickListener listBtnClickListener ;
-    public RequestListViewAdapter(Context context, int resource, ArrayList<UserInfo> list, RequestListViewAdapter.ListBtnClickListener clickListener){
+    private ListBtnClickListener listBtnClickListener ;
+    public RequestListViewAdapter(Context context, int resource, ArrayList<UserInfo> list, ListBtnClickListener clickListener){
         super(context,resource,list);
         this.context = context;
         this.resourceId = resource;

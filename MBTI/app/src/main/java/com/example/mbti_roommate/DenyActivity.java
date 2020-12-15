@@ -3,6 +3,7 @@ package com.example.mbti_roommate;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,7 +17,7 @@ public class DenyActivity extends AppCompatActivity implements DenyListViewAdapt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deny);
-
+        int i;
         Intent intent = getIntent();
         Bundle bundleObject = getIntent().getExtras();
         ArrayList<UserInfo> uInfos = (ArrayList<UserInfo>)bundleObject.getSerializable("UserInfos");
@@ -24,9 +25,13 @@ public class DenyActivity extends AppCompatActivity implements DenyListViewAdapt
         adapter = new DenyListViewAdapter(this,R.layout.profile_deny,uInfos,this);
         listView.setAdapter(adapter);
 
-        for(int i=0;i<uInfos.size();++i){
+        for(i=0;i<uInfos.size();++i){
             adapter.addItem(uInfos.get(i));
         }
+
+        // (차단보관함의)총 000개의 차단 프로필이 있습니다. 부분
+        TextView txt = (TextView)findViewById(R.id.deny_num_text);
+        txt.setText(String.format("총 %03d개의 차단 프로필이 있습니다.", i));
     }
 
     @Override

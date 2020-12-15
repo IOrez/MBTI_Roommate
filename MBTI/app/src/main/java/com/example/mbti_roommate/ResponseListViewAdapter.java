@@ -36,8 +36,8 @@ public class ResponseListViewAdapter extends ArrayAdapter<UserInfo> implements V
     }
     int resourceId;
     Context context;
-    private ResponseListViewAdapter.ListBtnClickListener listBtnClickListener ;
-    public ResponseListViewAdapter(Context context, int resource, ArrayList<UserInfo> list, ResponseListViewAdapter.ListBtnClickListener clickListener){
+    private ListBtnClickListener listBtnClickListener ;
+    public ResponseListViewAdapter(Context context, int resource, ArrayList<UserInfo> list, ListBtnClickListener clickListener){
         super(context,resource,list);
         this.context = context;
         this.resourceId = resource;

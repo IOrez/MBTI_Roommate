@@ -3,27 +3,29 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:padding="16dp"
     android:background="@drawable/border">
 
 
     <ImageView
-        android:layout_width="98dp"
-        android:layout_height="123dp"
-        android:id ="@+id/image"/>
+        android:layout_width="190dp"
+        android:layout_height="169dp"
+        android:id ="@+id/image"
+        android:layout_gravity="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
 
-        android:background="@drawable/border">
+      >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_gravity="center">
 
             <TextView
                 android:id="@+id/name_tag"
@@ -31,20 +33,27 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_margin="7dp"
-                android:text="NAME"
-                android:textColor="#03A9F4"
-                android:textSize="21sp"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+                android:fontFamily="@font/noto_sans"
+                android:text="이름"
+
+                android:textColor="#309027"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="user_name"
-                android:textStyle="bold"
-                android:layout_margin="7dp"
                 android:id="@+id/user_name"
-                android:textSize="20dp"/>
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:fontFamily="@font/noto_sans"
+                android:text="username"
+                android:textColor="#000000"
+
+                android:textSize="13sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -52,26 +61,31 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+
             <TextView
                 android:id="@+id/mbti_tag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_margin="7dp"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+                android:fontFamily="@font/noto_sans"
                 android:text="MBTI"
-                android:textColor="#03A9F4"
-                android:textSize="24sp"
+                android:textColor="#309027"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="mbit_name"
-                android:textStyle="bold"
-                android:layout_margin="7dp"
                 android:id="@+id/mbti_name"
-                android:textSize="20dp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:fontFamily="@font/noto_sans"
+                android:text="mbti_name"
+                android:textColor="#000000"
+                android:textSize="13sp" />
 
         </LinearLayout>
 
@@ -86,21 +100,24 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_margin="7dp"
-                android:text="SMOKE"
-                android:textColor="#03A9F4"
-                android:textSize="24sp"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+                android:fontFamily="@font/noto_sans"
+                android:text="흡연여부"
+                android:textColor="#309027"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="isSmoke"
-                android:textStyle="bold"
-                android:layout_margin="7dp"
                 android:id="@+id/isSmoke"
-                android:textSize="20dp"/>
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:fontFamily="@font/noto_sans"
+                android:text="isSmoke"
+                android:textColor="#000000"
+                android:textSize="13sp" />
         </LinearLayout>
     </LinearLayout>
 
