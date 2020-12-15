@@ -214,32 +214,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/age_textView" />
 
-            <RadioButton
-                android:id="@+id/gender_woman"
-                android:layout_width="143dp"
-                android:layout_height="39dp"
-                android:layout_marginStart="92dp"
-                android:layout_marginTop="23dp"
-                android:background="@drawable/signup_radiobutton_style"
-                android:buttonTint="#217ED4"
-                android:text="여자"
-                android:textColor="#217ED4"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/age_spinner" />
 
-            <RadioButton
-                android:id="@+id/gender_man"
-                android:layout_width="143dp"
-                android:layout_height="39dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="23dp"
-                android:background="@drawable/signup_radiobutton_style"
-                android:buttonTint="#217ED4"
-                android:text="남자"
-                android:textColor="#217ED4"
-                android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/gender_woman"
-                app:layout_constraintTop_toBottomOf="@+id/age_spinner" />
 
             <Spinner
                 android:id="@+id/univ_spinner"
@@ -283,14 +258,38 @@
 
             <RadioGroup
                 android:id="@+id/genderRadioGroup"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="39dp"
-                android:layout_marginStart="104dp"
-                android:layout_marginLeft="104dp"
+                android:layout_marginStart="92dp"
+                android:layout_marginLeft="92dp"
                 android:layout_marginTop="23dp"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/age_spinner">
+
+                <RadioButton
+                    android:id="@+id/gender_woman"
+                    android:layout_width="150dp"
+                    android:layout_height="39dp"
+                    android:background="@drawable/signup_radiobutton_style"
+                    android:buttonTint="#217ED4"
+                    android:text="여자"
+                    android:textColor="#217ED4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/age_spinner" />
+
+                <RadioButton
+                    android:id="@+id/gender_man"
+                    android:layout_width="150dp"
+                    android:layout_height="39dp"
+
+                    android:background="@drawable/signup_radiobutton_style"
+                    android:buttonTint="#217ED4"
+                    android:text="남자"
+                    android:textColor="#217ED4"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toEndOf="@+id/gender_woman"
+                    app:layout_constraintTop_toBottomOf="@+id/age_spinner" />
 
             </RadioGroup>
 
@@ -299,13 +298,34 @@
                 android:id="@+id/isSmokerRadioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="39dp"
-                android:layout_marginStart="104dp"
+                android:layout_marginStart="92dp"
                 android:layout_marginLeft="104dp"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/MBTI_spinner">
 
+                <RadioButton
+                    android:id="@+id/isSmoker"
+                    android:layout_width="150dp"
+                    android:layout_height="39dp"
+                    android:background="@drawable/signup_radiobutton_style"
+                    android:buttonTint="#217ED4"
+                    android:text="예"
+                    android:textColor="#217ED4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/MBTI_spinner" />
+
+                <RadioButton
+                    android:id="@+id/isnotSmoker"
+                    android:layout_width="150dp"
+                    android:layout_height="39dp"
+                    android:background="@drawable/signup_radiobutton_style"
+                    android:buttonTint="#217ED4"
+                    android:text="아니오"
+                    android:textColor="#217ED4"
+                    app:layout_constraintStart_toEndOf="@+id/isSmoker"
+                    app:layout_constraintTop_toBottomOf="@+id/MBTI_spinner" />
 
             </RadioGroup>
 
@@ -493,31 +513,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lifestyle_textView" />
 
-            <RadioButton
-                android:id="@+id/isSmoker"
-                android:layout_width="140dp"
-                android:layout_height="39dp"
-                android:layout_marginStart="92dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/signup_radiobutton_style"
-                android:buttonTint="#217ED4"
-                android:text="예"
-                android:textColor="#217ED4"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/MBTI_spinner" />
 
-            <RadioButton
-                android:id="@+id/isnotSmoker"
-                android:layout_width="140dp"
-                android:layout_height="39dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/signup_radiobutton_style"
-                android:buttonTint="#217ED4"
-                android:text="아니오"
-                android:textColor="#217ED4"
-                app:layout_constraintStart_toEndOf="@+id/isSmoker"
-                app:layout_constraintTop_toBottomOf="@+id/MBTI_spinner" />
 
             <TextView
                 android:id="@+id/isSmoker_textView"
