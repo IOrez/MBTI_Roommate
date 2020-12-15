@@ -158,37 +158,37 @@ public class UserRegister extends AppCompatActivity {
                 //mbti
                 //순서는 @values/array.xml
                 int pmbtiInt = 0;           //초기화
-                if ((mbti_spinner.getSelectedItem().toString()).equals("INTJ"))
+                if ((mbti_spinner.getSelectedItem().toString()).equals("INFP"))
                     pmbtiInt = 0;
-                else if ((mbti_spinner.getSelectedItem().toString()).equals("INTP"))
-                    pmbtiInt = 1;
-                else if ((mbti_spinner.getSelectedItem().toString()).equals("ENTJ"))
-                    pmbtiInt = 2;
-                else if ((mbti_spinner.getSelectedItem().toString()).equals("ENTP"))
-                    pmbtiInt = 3;
-                else if ((mbti_spinner.getSelectedItem().toString()).equals("INFJ"))
-                    pmbtiInt = 4;
-                else if ((mbti_spinner.getSelectedItem().toString()).equals("INFP"))
-                    pmbtiInt = 5;
-                else if ((mbti_spinner.getSelectedItem().toString()).equals("ENFJ"))
-                    pmbtiInt = 6;
                 else if ((mbti_spinner.getSelectedItem().toString()).equals("ENFP"))
+                    pmbtiInt = 1;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("INFJ"))
+                    pmbtiInt = 2;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ENFJ"))
+                    pmbtiInt = 3;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("INTJ"))
+                    pmbtiInt = 4;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ENTJ"))
+                    pmbtiInt = 5;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("INTP"))
+                    pmbtiInt = 6;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ENTP"))
                     pmbtiInt = 7;
-                else if ((mbti_spinner.getSelectedItem().toString()).equals("ISTJ"))
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ISFP"))
                     pmbtiInt = 8;
-                else if ((mbti_spinner.getSelectedItem().toString()).equals("ISTP"))
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ESFP"))
                     pmbtiInt = 9;
-                else if ((mbti_spinner.getSelectedItem().toString()).equals("ESTJ"))
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ISTP"))
                     pmbtiInt = 10;
                 else if ((mbti_spinner.getSelectedItem().toString()).equals("ESTP"))
                     pmbtiInt = 11;
                 else if ((mbti_spinner.getSelectedItem().toString()).equals("ISFJ"))
                     pmbtiInt = 12;
-                else if ((mbti_spinner.getSelectedItem().toString()).equals("ISFP"))
-                    pmbtiInt = 13;
                 else if ((mbti_spinner.getSelectedItem().toString()).equals("ESFJ"))
+                    pmbtiInt = 13;
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ISTJ"))
                     pmbtiInt = 14;
-                else if ((mbti_spinner.getSelectedItem().toString()).equals("ESFP"))
+                else if ((mbti_spinner.getSelectedItem().toString()).equals("ESTJ"))
                     pmbtiInt = 15;
                 String pmbti = Integer.toString(pmbtiInt);
 
